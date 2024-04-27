@@ -1,0 +1,42 @@
+execute success show tables
+	attr: yumodb.mysql.client
+execute success create table test_1 ( id int,name varchar(255),age int )
+	attr: yumodb.mysql.client
+execute error create table test_1 ( id int,name varchar(255),age int ) 
+ (1050, "Table 'test_1' already exists")
+	attr: yumodb.mysql.client
+execute success create table test_2 ( id int,name varchar(255),age int,primary key(id),unique (name) )
+	attr: yumodb.mysql.client
+execute error create table test_2 ( id int,name varchar(255),age int,primary key(id),unique (name) ) 
+ (1050, "Table 'test_2' already exists")
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 values()
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 (id, name, age)values(1, 'yumo', 18)
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 (id, name, age)values(1, 'Y', 18)
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 (id, name, age)values(2, 'T', 20)
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 (id, name, age)values(3, 'H', 21)
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 (id, name, age)values(4, 'X', 19)
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 (id, name, age)values(5, 'M', 18)
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 values(1, 'yumo', 18)
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 values(1, 'Y', 18)
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 values(2, 'T', 20)
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 values(3, 'H', 21)
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 values(4, 'X', 19)
+	attr: yumodb.mysql.client
+execute success insert ignore into test_1 values(5, 'M', 18)
+	attr: yumodb.mysql.client
+execute success update test_1 set id = 2, name = 'yunximoran', age = 18 where id=1
+	attr: yumodb.mysql.client
+execute success select age from test_1 where id = 2
+	attr: yumodb.mysql.client

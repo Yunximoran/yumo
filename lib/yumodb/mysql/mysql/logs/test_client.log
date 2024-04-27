@@ -1,0 +1,10 @@
+test debug log
+	attr: .yumodb.mysql.test_client
+test info log
+	attr: .yumodb.mysql.test_client
+test warning log
+	attr: .yumodb.mysql.test_client
+test error log
+	attr: .yumodb.mysql.test_client
+test critical log
+	attr: .yumodb.mysql.test_client

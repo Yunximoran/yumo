@@ -1,0 +1,246 @@
+
+TEST LINK UnorderedList TIME:[ - 2024-04-25 01:58:14.081166 - ]
+
+success addNode 0, now UnorderedList len =  1
+success addNode 1, now UnorderedList len =  2
+success addNode 2, now UnorderedList len =  3
+success addNode 3, now UnorderedList len =  4
+success addNode 4, now UnorderedList len =  5
+success addNode 5, now UnorderedList len =  6
+success addNode 6, now UnorderedList len =  7
+success addNode 7, now UnorderedList len =  8
+success addNode 8, now UnorderedList len =  9
+success addNode 9, now UnorderedList len =  10
+test UnorderedList findNode: 2, result is  True
+test UnorderedList findNode: 3, result is  True
+test UnorderedList findNode: 4, result is  True
+success removeNode all now UnorderedList len = 7
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  True
+test UnorderedList iter func, index: 0 - result: 0
+test UnorderedList iter func, index: 1 - result: 1
+test UnorderedList iter func, index: 2 - result: 5
+test UnorderedList iter func, index: 3 - result: 6
+test UnorderedList iter func, index: 4 - result: 7
+test UnorderedList iter func, index: 5 - result: 8
+test UnorderedList iter func, index: 6 - result: 9
+
+TEST LINK UnorderedList TIME:[ - 2024-04-25 01:58:37.118656 - ]
+
+success addNode 0, now UnorderedList len =  1
+success addNode 1, now UnorderedList len =  2
+success addNode 2, now UnorderedList len =  3
+success addNode 3, now UnorderedList len =  4
+success addNode 4, now UnorderedList len =  5
+success addNode 5, now UnorderedList len =  6
+success addNode 6, now UnorderedList len =  7
+success addNode 7, now UnorderedList len =  8
+success addNode 8, now UnorderedList len =  9
+success addNode 9, now UnorderedList len =  10
+test UnorderedList findNode: 2, result is  True
+test UnorderedList findNode: 3, result is  True
+test UnorderedList findNode: 4, result is  True
+success removeNode all now UnorderedList len = 7
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  True
+test UnorderedList iter func, index: 0 - result: 0
+test UnorderedList iter func, index: 1 - result: 1
+test UnorderedList iter func, index: 2 - result: 5
+test UnorderedList iter func, index: 3 - result: 6
+test UnorderedList iter func, index: 4 - result: 7
+test UnorderedList iter func, index: 5 - result: 8
+test UnorderedList iter func, index: 6 - result: 9
+
+TEST LINK UnorderedList TIME:[ - 2024-04-25 01:58:42.396440 - ]
+
+success addNode 0, now UnorderedList len =  1
+success addNode 1, now UnorderedList len =  2
+success addNode 2, now UnorderedList len =  3
+success addNode 3, now UnorderedList len =  4
+success addNode 4, now UnorderedList len =  5
+success addNode 5, now UnorderedList len =  6
+success addNode 6, now UnorderedList len =  7
+success addNode 7, now UnorderedList len =  8
+success addNode 8, now UnorderedList len =  9
+success addNode 9, now UnorderedList len =  10
+test UnorderedList findNode: 2, result is  True
+test UnorderedList findNode: 3, result is  True
+test UnorderedList findNode: 4, result is  True
+success removeNode all now UnorderedList len = 7
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  True
+test UnorderedList iter func, index: 0 - result: 0
+test UnorderedList iter func, index: 1 - result: 1
+test UnorderedList iter func, index: 2 - result: 5
+test UnorderedList iter func, index: 3 - result: 6
+test UnorderedList iter func, index: 4 - result: 7
+test UnorderedList iter func, index: 5 - result: 8
+test UnorderedList iter func, index: 6 - result: 9
+
+TEST LINK UnorderedList TIME:[ - 2024-04-25 01:58:45.992429 - ]
+
+success addNode 0, now UnorderedList len =  1
+success addNode 1, now UnorderedList len =  2
+success addNode 2, now UnorderedList len =  3
+success addNode 3, now UnorderedList len =  4
+success addNode 4, now UnorderedList len =  5
+success addNode 5, now UnorderedList len =  6
+success addNode 6, now UnorderedList len =  7
+success addNode 7, now UnorderedList len =  8
+success addNode 8, now UnorderedList len =  9
+success addNode 9, now UnorderedList len =  10
+test UnorderedList findNode: 2, result is  True
+test UnorderedList findNode: 3, result is  True
+test UnorderedList findNode: 4, result is  True
+success removeNode all now UnorderedList len = 7
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  True
+test UnorderedList iter func, index: 0 - result: 0
+test UnorderedList iter func, index: 1 - result: 1
+test UnorderedList iter func, index: 2 - result: 5
+test UnorderedList iter func, index: 3 - result: 6
+test UnorderedList iter func, index: 4 - result: 7
+test UnorderedList iter func, index: 5 - result: 8
+test UnorderedList iter func, index: 6 - result: 9
+
+TEST LINK UnorderedList TIME:[ - 2024-04-25 01:58:52.936479 - ]
+
+success addNode 0, now UnorderedList len =  1
+success addNode 1, now UnorderedList len =  2
+success addNode 2, now UnorderedList len =  3
+success addNode 3, now UnorderedList len =  4
+success addNode 4, now UnorderedList len =  5
+success addNode 5, now UnorderedList len =  6
+success addNode 6, now UnorderedList len =  7
+success addNode 7, now UnorderedList len =  8
+success addNode 8, now UnorderedList len =  9
+success addNode 9, now UnorderedList len =  10
+test UnorderedList findNode: 2, result is  True
+test UnorderedList findNode: 3, result is  True
+test UnorderedList findNode: 4, result is  True
+success removeNode all now UnorderedList len = 7
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  True
+test UnorderedList iter func, index: 0 - result: 0
+test UnorderedList iter func, index: 1 - result: 1
+test UnorderedList iter func, index: 2 - result: 5
+test UnorderedList iter func, index: 3 - result: 6
+test UnorderedList iter func, index: 4 - result: 7
+test UnorderedList iter func, index: 5 - result: 8
+test UnorderedList iter func, index: 6 - result: 9
+
+TEST LINK UnorderedList TIME:[ - 2024-04-25 01:59:06.950383 - ]
+
+success addNode 0, now UnorderedList len =  1
+success addNode 1, now UnorderedList len =  2
+success addNode 2, now UnorderedList len =  3
+success addNode 3, now UnorderedList len =  4
+success addNode 4, now UnorderedList len =  5
+success addNode 5, now UnorderedList len =  6
+success addNode 6, now UnorderedList len =  7
+success addNode 7, now UnorderedList len =  8
+success addNode 8, now UnorderedList len =  9
+success addNode 9, now UnorderedList len =  10
+test UnorderedList findNode: 2, result is  True
+test UnorderedList findNode: 3, result is  True
+test UnorderedList findNode: 4, result is  True
+success removeNode all now UnorderedList len = 7
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  True
+test UnorderedList iter func, index: 0 - result: 0
+test UnorderedList iter func, index: 1 - result: 1
+test UnorderedList iter func, index: 2 - result: 5
+test UnorderedList iter func, index: 3 - result: 6
+test UnorderedList iter func, index: 4 - result: 7
+test UnorderedList iter func, index: 5 - result: 8
+test UnorderedList iter func, index: 6 - result: 9
+
+TEST LINK UnorderedList TIME:[ - 2024-04-25 01:59:08.896374 - ]
+
+success addNode 0, now UnorderedList len =  1
+success addNode 1, now UnorderedList len =  2
+success addNode 2, now UnorderedList len =  3
+success addNode 3, now UnorderedList len =  4
+success addNode 4, now UnorderedList len =  5
+success addNode 5, now UnorderedList len =  6
+success addNode 6, now UnorderedList len =  7
+success addNode 7, now UnorderedList len =  8
+success addNode 8, now UnorderedList len =  9
+success addNode 9, now UnorderedList len =  10
+test UnorderedList findNode: 2, result is  True
+test UnorderedList findNode: 3, result is  True
+test UnorderedList findNode: 4, result is  True
+success removeNode all now UnorderedList len = 7
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  True
+test UnorderedList iter func, index: 0 - result: 0
+test UnorderedList iter func, index: 1 - result: 1
+test UnorderedList iter func, index: 2 - result: 5
+test UnorderedList iter func, index: 3 - result: 6
+test UnorderedList iter func, index: 4 - result: 7
+test UnorderedList iter func, index: 5 - result: 8
+test UnorderedList iter func, index: 6 - result: 9
+
+TEST LINK UnorderedList TIME:[ - 2024-04-25 08:06:56.786151 - ]
+
+success addNode 0, now UnorderedList len =  1
+success addNode 1, now UnorderedList len =  2
+success addNode 2, now UnorderedList len =  3
+success addNode 3, now UnorderedList len =  4
+success addNode 4, now UnorderedList len =  5
+success addNode 5, now UnorderedList len =  6
+success addNode 6, now UnorderedList len =  7
+success addNode 7, now UnorderedList len =  8
+success addNode 8, now UnorderedList len =  9
+success addNode 9, now UnorderedList len =  10
+test UnorderedList findNode: 2, result is  True
+test UnorderedList findNode: 3, result is  True
+test UnorderedList findNode: 4, result is  True
+success removeNode all now UnorderedList len = 7
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  True
+test UnorderedList iter func, index: 0 - result: 0
+test UnorderedList iter func, index: 1 - result: 1
+test UnorderedList iter func, index: 2 - result: 5
+test UnorderedList iter func, index: 3 - result: 6
+test UnorderedList iter func, index: 4 - result: 7
+test UnorderedList iter func, index: 5 - result: 8
+test UnorderedList iter func, index: 6 - result: 9
+
+TEST LINK UnorderedList TIME:[ - 2024-04-25 08:07:17.775941 - ]
+
+success addNode 0, now UnorderedList len =  1
+success addNode 1, now UnorderedList len =  2
+success addNode 2, now UnorderedList len =  3
+success addNode 3, now UnorderedList len =  4
+success addNode 4, now UnorderedList len =  5
+success addNode 5, now UnorderedList len =  6
+success addNode 6, now UnorderedList len =  7
+success addNode 7, now UnorderedList len =  8
+success addNode 8, now UnorderedList len =  9
+success addNode 9, now UnorderedList len =  10
+test UnorderedList findNode: 2, result is  True
+test UnorderedList findNode: 3, result is  True
+test UnorderedList findNode: 4, result is  True
+res <bound method Node.getVal of <lib.datastructure.list.abstraction.link.Node object at 0x000001ED579C8F90>>
+res <bound method Node.getVal of <lib.datastructure.list.abstraction.link.Node object at 0x000001ED579C8F10>>
+res <bound method Node.getVal of <lib.datastructure.list.abstraction.link.Node object at 0x000001ED579C8FD0>>
+success removeNode all now UnorderedList len = 7
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  False
+test UnorderedList contains func, result:  True
+test UnorderedList iter func, index: 0 - result: 0
+test UnorderedList iter func, index: 1 - result: 1
+test UnorderedList iter func, index: 2 - result: 5
+test UnorderedList iter func, index: 3 - result: 6
+test UnorderedList iter func, index: 4 - result: 7
+test UnorderedList iter func, index: 5 - result: 8
+test UnorderedList iter func, index: 6 - result: 9

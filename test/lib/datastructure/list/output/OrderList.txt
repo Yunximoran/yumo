@@ -1,0 +1,262 @@
+
+TEST LINK OrderList TIME:[ - 2024-04-25 01:58:14.079176 - ]
+
+success addNode 1, now OrderList len =  1
+success addNode 9, now OrderList len =  2
+success addNode 2, now OrderList len =  3
+success addNode 2, now OrderList len =  4
+success addNode 5, now OrderList len =  5
+success addNode 5, now OrderList len =  6
+success addNode 10, now OrderList len =  7
+success addNode 9, now OrderList len =  8
+success addNode 9, now OrderList len =  9
+success addNode 1, now OrderList len =  10
+test OrderList findNode: 2, result is  True
+test OrderList findNode: 3, result is  False
+test OrderList findNode: 4, result is  False
+success removeNode all now OrderList len = 9
+test OrderList contains func, result:  True
+test OrderList contains func, result:  False
+test OrderList contains func, result:  True
+test OrderList iter func, index: 0 - result: 1
+test OrderList iter func, index: 1 - result: 1
+test OrderList iter func, index: 2 - result: 2
+test OrderList iter func, index: 3 - result: 5
+test OrderList iter func, index: 4 - result: 5
+test OrderList iter func, index: 5 - result: 9
+test OrderList iter func, index: 6 - result: 9
+test OrderList iter func, index: 7 - result: 9
+test OrderList iter func, index: 8 - result: 10
+
+TEST LINK OrderList TIME:[ - 2024-04-25 01:58:37.116655 - ]
+
+success addNode 9, now OrderList len =  1
+success addNode 6, now OrderList len =  2
+success addNode 0, now OrderList len =  3
+success addNode 2, now OrderList len =  4
+success addNode 2, now OrderList len =  5
+success addNode 9, now OrderList len =  6
+success addNode 4, now OrderList len =  7
+success addNode 8, now OrderList len =  8
+success addNode 6, now OrderList len =  9
+success addNode 9, now OrderList len =  10
+test OrderList findNode: 2, result is  True
+test OrderList findNode: 3, result is  False
+test OrderList findNode: 4, result is  True
+success removeNode all now OrderList len = 8
+test OrderList contains func, result:  True
+test OrderList contains func, result:  False
+test OrderList contains func, result:  False
+test OrderList iter func, index: 0 - result: 0
+test OrderList iter func, index: 1 - result: 2
+test OrderList iter func, index: 2 - result: 6
+test OrderList iter func, index: 3 - result: 6
+test OrderList iter func, index: 4 - result: 8
+test OrderList iter func, index: 5 - result: 9
+test OrderList iter func, index: 6 - result: 9
+test OrderList iter func, index: 7 - result: 9
+
+TEST LINK OrderList TIME:[ - 2024-04-25 01:58:42.395440 - ]
+
+success addNode 3, now OrderList len =  1
+success addNode 10, now OrderList len =  2
+success addNode 3, now OrderList len =  3
+success addNode 10, now OrderList len =  4
+success addNode 5, now OrderList len =  5
+success addNode 3, now OrderList len =  6
+success addNode 9, now OrderList len =  7
+success addNode 3, now OrderList len =  8
+success addNode 4, now OrderList len =  9
+success addNode 6, now OrderList len =  10
+test OrderList findNode: 2, result is  False
+test OrderList findNode: 3, result is  True
+test OrderList findNode: 4, result is  True
+success removeNode all now OrderList len = 8
+test OrderList contains func, result:  False
+test OrderList contains func, result:  True
+test OrderList contains func, result:  True
+test OrderList iter func, index: 0 - result: 3
+test OrderList iter func, index: 1 - result: 3
+test OrderList iter func, index: 2 - result: 3
+test OrderList iter func, index: 3 - result: 5
+test OrderList iter func, index: 4 - result: 6
+test OrderList iter func, index: 5 - result: 9
+test OrderList iter func, index: 6 - result: 10
+test OrderList iter func, index: 7 - result: 10
+
+TEST LINK OrderList TIME:[ - 2024-04-25 01:58:45.991424 - ]
+
+success addNode 8, now OrderList len =  1
+success addNode 0, now OrderList len =  2
+success addNode 6, now OrderList len =  3
+success addNode 6, now OrderList len =  4
+success addNode 7, now OrderList len =  5
+success addNode 1, now OrderList len =  6
+success addNode 0, now OrderList len =  7
+success addNode 6, now OrderList len =  8
+success addNode 8, now OrderList len =  9
+success addNode 5, now OrderList len =  10
+test OrderList findNode: 2, result is  False
+test OrderList findNode: 3, result is  False
+test OrderList findNode: 4, result is  False
+success removeNode all now OrderList len = 10
+test OrderList contains func, result:  False
+test OrderList contains func, result:  False
+test OrderList contains func, result:  True
+test OrderList iter func, index: 0 - result: 0
+test OrderList iter func, index: 1 - result: 0
+test OrderList iter func, index: 2 - result: 1
+test OrderList iter func, index: 3 - result: 5
+test OrderList iter func, index: 4 - result: 6
+test OrderList iter func, index: 5 - result: 6
+test OrderList iter func, index: 6 - result: 6
+test OrderList iter func, index: 7 - result: 7
+test OrderList iter func, index: 8 - result: 8
+test OrderList iter func, index: 9 - result: 8
+
+TEST LINK OrderList TIME:[ - 2024-04-25 01:58:52.936479 - ]
+
+success addNode 1, now OrderList len =  1
+success addNode 0, now OrderList len =  2
+success addNode 7, now OrderList len =  3
+success addNode 10, now OrderList len =  4
+success addNode 10, now OrderList len =  5
+success addNode 3, now OrderList len =  6
+success addNode 10, now OrderList len =  7
+success addNode 9, now OrderList len =  8
+success addNode 2, now OrderList len =  9
+success addNode 3, now OrderList len =  10
+test OrderList findNode: 2, result is  True
+test OrderList findNode: 3, result is  True
+test OrderList findNode: 4, result is  False
+success removeNode all now OrderList len = 8
+test OrderList contains func, result:  False
+test OrderList contains func, result:  True
+test OrderList contains func, result:  False
+test OrderList iter func, index: 0 - result: 0
+test OrderList iter func, index: 1 - result: 1
+test OrderList iter func, index: 2 - result: 3
+test OrderList iter func, index: 3 - result: 7
+test OrderList iter func, index: 4 - result: 9
+test OrderList iter func, index: 5 - result: 10
+test OrderList iter func, index: 6 - result: 10
+test OrderList iter func, index: 7 - result: 10
+
+TEST LINK OrderList TIME:[ - 2024-04-25 01:59:06.949295 - ]
+
+success addNode 7, now OrderList len =  1
+success addNode 1, now OrderList len =  2
+success addNode 7, now OrderList len =  3
+success addNode 9, now OrderList len =  4
+success addNode 9, now OrderList len =  5
+success addNode 5, now OrderList len =  6
+success addNode 9, now OrderList len =  7
+success addNode 1, now OrderList len =  8
+success addNode 7, now OrderList len =  9
+success addNode 7, now OrderList len =  10
+test OrderList findNode: 2, result is  False
+test OrderList findNode: 3, result is  False
+test OrderList findNode: 4, result is  False
+success removeNode all now OrderList len = 10
+test OrderList contains func, result:  False
+test OrderList contains func, result:  False
+test OrderList contains func, result:  True
+test OrderList iter func, index: 0 - result: 1
+test OrderList iter func, index: 1 - result: 1
+test OrderList iter func, index: 2 - result: 5
+test OrderList iter func, index: 3 - result: 7
+test OrderList iter func, index: 4 - result: 7
+test OrderList iter func, index: 5 - result: 7
+test OrderList iter func, index: 6 - result: 7
+test OrderList iter func, index: 7 - result: 9
+test OrderList iter func, index: 8 - result: 9
+test OrderList iter func, index: 9 - result: 9
+
+TEST LINK OrderList TIME:[ - 2024-04-25 01:59:08.894238 - ]
+
+success addNode 5, now OrderList len =  1
+success addNode 2, now OrderList len =  2
+success addNode 0, now OrderList len =  3
+success addNode 3, now OrderList len =  4
+success addNode 8, now OrderList len =  5
+success addNode 1, now OrderList len =  6
+success addNode 7, now OrderList len =  7
+success addNode 10, now OrderList len =  8
+success addNode 7, now OrderList len =  9
+success addNode 0, now OrderList len =  10
+test OrderList findNode: 2, result is  True
+test OrderList findNode: 3, result is  True
+test OrderList findNode: 4, result is  False
+success removeNode all now OrderList len = 8
+test OrderList contains func, result:  False
+test OrderList contains func, result:  False
+test OrderList contains func, result:  True
+test OrderList iter func, index: 0 - result: 0
+test OrderList iter func, index: 1 - result: 0
+test OrderList iter func, index: 2 - result: 1
+test OrderList iter func, index: 3 - result: 5
+test OrderList iter func, index: 4 - result: 7
+test OrderList iter func, index: 5 - result: 7
+test OrderList iter func, index: 6 - result: 8
+test OrderList iter func, index: 7 - result: 10
+
+TEST LINK OrderList TIME:[ - 2024-04-25 08:06:56.784070 - ]
+
+success addNode 7, now OrderList len =  1
+success addNode 0, now OrderList len =  2
+success addNode 3, now OrderList len =  3
+success addNode 8, now OrderList len =  4
+success addNode 10, now OrderList len =  5
+success addNode 9, now OrderList len =  6
+success addNode 0, now OrderList len =  7
+success addNode 10, now OrderList len =  8
+success addNode 3, now OrderList len =  9
+success addNode 6, now OrderList len =  10
+test OrderList findNode: 2, result is  False
+test OrderList findNode: 3, result is  True
+test OrderList findNode: 4, result is  False
+success removeNode all now OrderList len = 9
+test OrderList contains func, result:  False
+test OrderList contains func, result:  True
+test OrderList contains func, result:  False
+test OrderList iter func, index: 0 - result: 0
+test OrderList iter func, index: 1 - result: 0
+test OrderList iter func, index: 2 - result: 3
+test OrderList iter func, index: 3 - result: 6
+test OrderList iter func, index: 4 - result: 7
+test OrderList iter func, index: 5 - result: 8
+test OrderList iter func, index: 6 - result: 9
+test OrderList iter func, index: 7 - result: 10
+test OrderList iter func, index: 8 - result: 10
+
+TEST LINK OrderList TIME:[ - 2024-04-25 08:07:17.774952 - ]
+
+success addNode 2, now OrderList len =  1
+success addNode 6, now OrderList len =  2
+success addNode 6, now OrderList len =  3
+success addNode 8, now OrderList len =  4
+success addNode 2, now OrderList len =  5
+success addNode 2, now OrderList len =  6
+success addNode 8, now OrderList len =  7
+success addNode 7, now OrderList len =  8
+success addNode 2, now OrderList len =  9
+success addNode 8, now OrderList len =  10
+test OrderList findNode: 2, result is  True
+test OrderList findNode: 3, result is  False
+test OrderList findNode: 4, result is  False
+res <bound method Node.getVal of <lib.datastructure.list.abstraction.link.Node object at 0x000001ED579C82D0>>
+res None
+res None
+success removeNode all now OrderList len = 9
+test OrderList contains func, result:  True
+test OrderList contains func, result:  False
+test OrderList contains func, result:  False
+test OrderList iter func, index: 0 - result: 2
+test OrderList iter func, index: 1 - result: 2
+test OrderList iter func, index: 2 - result: 2
+test OrderList iter func, index: 3 - result: 6
+test OrderList iter func, index: 4 - result: 6
+test OrderList iter func, index: 5 - result: 7
+test OrderList iter func, index: 6 - result: 8
+test OrderList iter func, index: 7 - result: 8
+test OrderList iter func, index: 8 - result: 8
