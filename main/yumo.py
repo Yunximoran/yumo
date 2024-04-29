@@ -1,4 +1,5 @@
 # 日常活动区
 
+OutFormat = ['\t'] * 3
 
-print("hello world")
+print(''.join(OutFormat) + "test")

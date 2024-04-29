@@ -1,10 +1,16 @@
 import os
 
+specialList = [
+    ".git",
+    ".idea",
+    ".pytest_cache",
+    "__pycache__"
+]
 
-# ?.global:
 
 class BuildDir:
     workDir = os.getcwd()  # 获取工作目录 -> 根目录
+    baseName = os.path.basename(workDir)
 
     def __init__(self, substructures):
         """
@@ -21,7 +27,7 @@ class BuildDir:
         :return:
         """
         sunDirList = [self.getAbsolutePath(currentDir, sun) for sun in os.listdir(currentDir) if
-                      (sun not in self.substructures) and os.path.isdir(os.path.join(currentDir, sun))]
+                      (sun not in self.substructures) and os.path.isdir(self.getAbsolutePath(currentDir, sun))]
         """
             sunDirList: 只能存放 底层结构目录之外的文件
         """
@@ -32,24 +38,6 @@ class BuildDir:
         else:
             for sunDir in sunDirList:
                 self.start(sunDir)
-
-    # @staticmethod # 怎么办好像不需要 这个
-    # def isAnyDir(PathList):
-    #     """
-    #         判断子元素列表是否都是dir
-    #     :param PathList:
-    #     :return:
-    #
-    #     demo2:  # 第二种方案，如果子元素中存在dir则返回True
-    #
-    #         for path in PathList:
-    #             if os.path.isdir(path):
-    #                 return True
-    #
-    #         return False
-    #
-    #     """
-    #     return any(path for path in PathList if os.path.isdir(path))
 
     @staticmethod
     def getAbsolutePath(head, rear):
@@ -62,10 +50,23 @@ class BuildDir:
             if not os.path.exists(elem_path):
                 os.makedirs(elem_path)
 
+    def OutTreeFrame(self, currentDir=workDir, level=0):
+        OutFormat = ''.join(['\t' * level])
 
-"""
-从当前目录开始遍历子元素
+        if currentDir == self.workDir:
+            print(self.baseName)
+        sunElemList = os.listdir(currentDir)  # 获取当前目录子元素列表
+        if sunElemList:
+            for sun in sunElemList:
+                if sun in specialList:
+                    continue
+                sun_path = self.getAbsolutePath(currentDir, sun)
+                print(OutFormat + sun)
+                if os.path.isdir(sun_path):
+                    self.OutTreeFrame(sun_path, level + 1)
+        else:
+            pass
 
-判断哪些是dir属性
-判断dir是否为空， 是 -> 创建新目录， 否 —> 遍历该目录子元素， 是否存在dir -> 
-"""
+    def build_md(self):
+        pass
+
