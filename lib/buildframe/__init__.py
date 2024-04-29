@@ -21,7 +21,8 @@ class BuildDir:
         :param substructures: 项目 底层结构
         """
         self.substructures = substructures
-        self.start(self.workDir)
+        # self.start(self.workDir)
+        self.OutTreeFrame()
 
     def start(self, currentDir):
         """
@@ -55,8 +56,7 @@ class BuildDir:
                 os.makedirs(elem_path)
 
     def OutTreeFrame(self, currentDir=workDir, level=0):
-        OutFormat = ''.join(['\t' * level])
-
+        OutFormat = ''.join(['  |' * level])
         if currentDir == self.workDir:
             print(self.baseName)
         sunElemList = os.listdir(currentDir)  # 获取当前目录子元素列表
@@ -68,8 +68,6 @@ class BuildDir:
                 print(OutFormat + sun)
                 if os.path.isdir(sun_path):
                     self.OutTreeFrame(sun_path, level + 1)
-        else:
-            pass
 
     def addFileInAllDir(self, filename, currentDir=workDir):
         """
