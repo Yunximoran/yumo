@@ -1,38 +1,9 @@
-# yumo project
+# YuMo Study Nodes 
 
+***
+## [course: 课程项目](material/information/course.md)
+## [lib: 自建工具包](material/information/lib.md)
+## [main: 个人项目](material/information/main.md)
+## material:
+***
 
-
-* course
-* lib
-  * datastructure
-    * basic
-      * [_stack.py   (Stack)_](lib/datastructure/basic/stack.py)
-      * [_queue.py   (Queue)_](lib/datastructure/basic/queue.py)
-      * [_deque.py   (Deque)_](lib/datastructure/basic/deque.py)
-    * graph
-      * [_graph.py   (Graph, WeightDigraph)_](lib/datastructure/graph/graph.py)
-      * [_vertex.py  (Vertex)_](lib/datastructure/graph/vertex.py)
-    * list
-      * abstract
-        * _[link.py](lib/datastructure/list/abstract/link.py)_
-      * order.py
-      * unordered.py
-    * tree ()
-    * search (sequence, binary, hash)
-    * sort
-  * yumodb
-    * mongo
-    * mysql
-    * redis
-* main
-  * Machine Learning
-  * MySQL
-  * OpenCV
-  * yumo
-* test
-  * course
-  * lib
-    * datastructure
-    * yumodb
-      * mysql
-  * main
