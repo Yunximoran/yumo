@@ -1,5 +1,8 @@
 import os
 
+
+__all__ = ['BuildDir']
+
 specialList = [
     ".git",
     ".idea",
@@ -75,19 +78,20 @@ class BuildDir:
         :param filename:
         :return:
         """
-        sunElemList = os.listdir(currentDir)
-        if not sunElemList:
-            return
-
-        if 'yumo.py' in sunElemList:
-            self.addFile(filename, currentDir)
-        else:
-            for sun in sunElemList:
-                sun_path = self.getAbsolutePath(currentDir, sun)
-                if os.path.isdir(sun_path):
-                    self.addFileInAllDir(filename, currentDir)
-                else:
-                    pass
+        pass
+        # sunElemList = os.listdir(currentDir)
+        # if not sunElemList:
+        #     return
+        #
+        # if 'yumo.py' in sunElemList:
+        #     self.addFile(filename, currentDir)
+        # else:
+        #     for sun in sunElemList:
+        #         sun_path = self.getAbsolutePath(currentDir, sun)
+        #         if os.path.isdir(sun_path):
+        #             self.addFileInAllDir(filename, currentDir)
+        #         else:
+        #             pass
 
     @staticmethod
     def addFile(filename, path=workDir):
