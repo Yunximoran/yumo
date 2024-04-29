@@ -44,7 +44,8 @@ class BuildDir:
         return os.path.join(head, rear)
 
     def building(self, currentDir):
-        os.open(f"{currentDir}/yumo.py", os.O_CREAT | os.O_WRONLY)
+        self.addFile('yumo.py', currentDir)
+        # os.open(f"{currentDir}/yumo.py", os.O_CREAT | os.O_WRONLY)
         for elem in self.substructures:
             elem_path = self.getAbsolutePath(currentDir, elem)
             if not os.path.exists(elem_path):
@@ -67,6 +68,28 @@ class BuildDir:
         else:
             pass
 
-    def build_md(self):
-        pass
+    def addFileInAllDir(self, filename, currentDir=workDir):
+        """
+            在所有目录下创建文件
+        :param currentDir:
+        :param filename:
+        :return:
+        """
+        sunElemList = os.listdir(currentDir)
+        if not sunElemList:
+            return
 
+        if 'yumo.py' in sunElemList:
+            self.addFile(filename, currentDir)
+        else:
+            for sun in sunElemList:
+                sun_path = self.getAbsolutePath(currentDir, sun)
+                if os.path.isdir(sun_path):
+                    self.addFileInAllDir(filename, currentDir)
+                else:
+                    pass
+
+    @staticmethod
+    def addFile(filename, path=workDir):
+        """ 添加文件 """  # 在当前目录下添加文件
+        os.open(f"{path}/{filename}", os.O_CREAT | os.O_WRONLY)
