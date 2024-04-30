@@ -14,6 +14,7 @@ specialList = [
 class BuildDir:
     workDir = os.getcwd()  # 获取工作目录 -> 根目录
     baseName = os.path.basename(workDir)
+    f = open(f"{os.path.basename(workDir)}.txt", 'w')
 
     def __init__(self, substructures):
         """
@@ -30,18 +31,18 @@ class BuildDir:
         :param currentDir: 当前目录
         :return:
         """
-        sunDirList = [self.getAbsolutePath(currentDir, sun) for sun in os.listdir(currentDir) if
-                      (sun not in self.substructures) and os.path.isdir(self.getAbsolutePath(currentDir, sun))]
+        sonDirList = [self.getAbsolutePath(currentDir, son) for son in os.listdir(currentDir) if
+                      (son not in self.substructures) and os.path.isdir(self.getAbsolutePath(currentDir, son))]
         """
-            sunDirList: 只能存放 底层结构目录之外的文件
+            sonDirList: 只能存放 底层结构目录之外的文件
         """
         # 怎么判断是否继续遍历下一级目录
 
-        if not sunDirList and currentDir != self.workDir:
+        if not sonDirList and currentDir != self.workDir:
             self.building(currentDir)
         else:
-            for sunDir in sunDirList:
-                self.start(sunDir)
+            for sonDir in sonDirList:
+                self.start(sonDir)
 
     @staticmethod
     def getAbsolutePath(head, rear):
@@ -59,15 +60,17 @@ class BuildDir:
         OutFormat = ''.join(['  |' * level])
         if currentDir == self.workDir:
             print(self.baseName)
-        sunElemList = os.listdir(currentDir)  # 获取当前目录子元素列表
-        if sunElemList:
-            for sun in sunElemList:
-                if sun in specialList:
+            self.f.write(self.baseName + "\n")
+        sonElemList = os.listdir(currentDir)  # 获取当前目录子元素列表
+        if sonElemList:
+            for son in sonElemList:
+                if son in specialList:
                     continue
-                sun_path = self.getAbsolutePath(currentDir, sun)
-                print(OutFormat + sun)
-                if os.path.isdir(sun_path):
-                    self.OutTreeFrame(sun_path, level + 1)
+                son_path = self.getAbsolutePath(currentDir, son)
+                print(OutFormat + son)
+                self.f.write(OutFormat + son + "\n")
+                if os.path.isdir(son_path):
+                    self.OutTreeFrame(son_path, level + 1)
 
     def addFileInAllDir(self, filename, currentDir=workDir):
         """
@@ -77,16 +80,16 @@ class BuildDir:
         :return:
         """
         pass
-        # sunElemList = os.listdir(currentDir)
-        # if not sunElemList:
+        # sonElemList = os.listdir(currentDir)
+        # if not sonElemList:
         #     return
         #
-        # if 'yumo.py' in sunElemList:
+        # if 'yumo.py' in sonElemList:
         #     self.addFile(filename, currentDir)
         # else:
-        #     for sun in sunElemList:
-        #         sun_path = self.getAbsolutePath(currentDir, sun)
-        #         if os.path.isdir(sun_path):
+        #     for son in sonElemList:
+        #         son_path = self.getAbsolutePath(currentDir, son)
+        #         if os.path.isdir(son_path):
         #             self.addFileInAllDir(filename, currentDir)
         #         else:
         #             pass

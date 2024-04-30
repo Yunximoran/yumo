@@ -1,3 +1,4 @@
+YuMo
 course
   |big data
   |  |book
@@ -16,13 +17,13 @@ course
   |  |yumo.py
   |data analysis
   |  |book
-  |  |  |åˆ©ç”¨Pythonè¿›è¡Œæ•°æ®åˆ†æ
+  |  |  |ÀûÓÃPython½øĞĞÊı¾İ·ÖÎö
   |  |document
   |  |video
   |  |yumo.py
   |data structure
   |  |book
-  |  |  |pythonæ•°æ®ç»“æ„ä¸ç®—æ³•åˆ†æ
+  |  |  |pythonÊı¾İ½á¹¹ÓëËã·¨·ÖÎö
   |  |  |  |0 base structure
   |  |  |  |  |basic.md
   |  |  |  |  |deque.py
@@ -117,7 +118,7 @@ lib
   |  |  |  |  |Information.log
   |  |  |  |  |test_client.log
   |  |  |workbench.py
-  |  |  |YuMoSQLæ—¥å¿—.ipynb
+  |  |  |YuMoSQLÈÕÖ¾.ipynb
   |  |  |__init__.py
   |  |redis
   |  |  |__init__.py
@@ -191,4 +192,4 @@ test
   |main
   |  |yumo.py
 yumo.py
-
+YuMo.txt
