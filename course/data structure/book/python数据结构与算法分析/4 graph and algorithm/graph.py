@@ -2,6 +2,7 @@ from vertex import Vertex
 
 
 class Graph:
+    # 图的抽象类
     def __init__(self):
         self.vertList = {}
         self.numVertices = 0
@@ -26,4 +27,31 @@ class Graph:
 
 
 class WeightDigraph(Graph):  # 带权有向图
-    pass
+    def addVertex(self, key):
+        self.numVertices += 1
+        newVertex = Vertex(key)
+        self.vertList[key] = newVertex
+        return newVertex
+
+    def addEdge(self, f, t, cost=0):
+        if f not in self.vertList:
+            self.addVertex(f)
+        if t not in self.vertList:
+            self.addVertex(t)
+
+        self.vertList[f].addNeighbor(self.vertList[t], cost)
+
+
+if __name__ == '__main__':
+    wg = WeightDigraph()
+
+    for i in range(10):
+        wg.addVertex(i)
+
+    for i in range(9):
+        wg.addEdge(i, i + 1)
+
+    for v in wg:
+        for w in v.getConnectTos():
+            print(v.id, w.id, end='\t\n')
+            print(v.getConnectTos()[w])

@@ -1,4 +1,8 @@
 class Vertex:
+    distance = None
+    pred = None
+    color = None
+
     def __init__(self, key):
         self.id = key
         self.connectTo = {}
@@ -22,10 +26,10 @@ class Vertex:
         return
 
     def setDistance(self, distance):
-        pass
+        self.distance = distance
 
     def setPred(self, pred):
-        pass
+        self.pred = pred
 
     def setColor(self, color):
-        pass
+        self.color = color
