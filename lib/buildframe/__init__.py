@@ -1,7 +1,6 @@
 import os
 
-
-__all__ = ['BuildDir']
+__all__ = ['BuildProjectStructure']
 
 specialList = [
     ".git",
@@ -11,21 +10,26 @@ specialList = [
 ]
 
 
-class BuildDir:
+class BuildProjectStructure:
     workDir = os.getcwd()  # 获取工作目录 -> 根目录
     baseName = os.path.basename(workDir)
     f = open(f"{os.path.basename(workDir)}.txt", 'w')
 
-    def __init__(self, substructures):
+    def __init__(self,
+                 substructures,
+                 mode=None
+                 ):
         """
             搭建 项目结构
         :param substructures: 项目 底层结构
         """
         self.substructures = substructures
         # self.start(self.workDir)
+        if mode == "build dir":
+            pass
         self.OutTreeFrame()
 
-    def start(self, currentDir):
+    def buildDir(self, currentDir):
         """
 
         :param currentDir: 当前目录
@@ -42,7 +46,7 @@ class BuildDir:
             self.building(currentDir)
         else:
             for sonDir in sonDirList:
-                self.start(sonDir)
+                self.buildDir(sonDir)
 
     @staticmethod
     def getAbsolutePath(head, rear):
