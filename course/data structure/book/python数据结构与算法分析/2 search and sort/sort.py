@@ -1,9 +1,11 @@
 def bubbleSort(alist):  # 冒泡排序
     for passnum in range(len(alist) - 1, 0, -1):
-        #
         for i in range(passnum):
-            if alist[passnum] > alist[i]:
-                alist[passnum], alist[i] = alist[i], alist[passnum]
+            if alist[i] > alist[i + 1]:
+                alist[i], alist[i + 1] = alist[i + 1], alist[i]
+            # if alist[passnum] > alist[i]:
+            #     alist[passnum], alist[i] = alist[i], alist[passnum]
+            # 两种方法都能实现排序 ？？？
 
 
 def shortBubbleSort(alist):  # 短冒泡排序
@@ -22,9 +24,10 @@ def shortBubbleSort(alist):  # 短冒泡排序
 
 
 def selectSort(alist):  # 选择排序
+    # 在alist中找到最大值，将其与末位元素交换
     for fillslot in range(len(alist) - 1, 0, -1):
         positionOfMax = 0
-        for location in range(1, fillslot - 1):
+        for location in range(1, fillslot + 1):
             if alist[location] > alist[positionOfMax]:
                 positionOfMax = location
 
@@ -39,10 +42,61 @@ def insertSort(alist):
 
         while position > 0 and alist[position - 1] > currentvalue:  # 如果alist[position] < currentvalue 说明需要交换
             alist[position] = alist[position - 1]  #
-            # 
             position = position - 1
 
         alist[position] = currentvalue
+    """
+    [5, 2, 6, 4, 3, 1]
+    
+    step 1: [5, 2] [6, 4, 3, 1], currentvalue = 2
+    
+        while position > 0 and alist[position - 1] > currentvalue:
+            position = 1, alist[0] = 5: alist[1] = alist[0] = 5, alist: [5, 5], (position = 0)
+            position = 0, alist[0] = 5: break
+        
+        alist[0] = 2, alist: [2, 5]
+    
+    step 2: [2, 5, 6] [4, 3, 1], currentvalue = 6
+    
+        while position > 0 and alist[position - 1] > currentvalue:
+            position = 2, alist[1] = 5: break
+        
+        alist[2] = 6, alist: [2, 5, 6]
+    
+    step 3: [2, 5, 6, 4] [3, 1], currentvalue = 4
+    
+        while position > 0 and alist[position - 1] > currentvalue:
+            position = 3, alist[2] = 6: alist[3] = alist[2] = 6, alist[2, 5, 6, 6], (position--)
+            position = 2, alist[1] = 5: alist[2] = alist[1] = 5, alist[2, 5, 5, 6], (position--)
+            position = 1, alist[0] = 2: break
+        
+        alist[1] = 4, alist: [2, 4, 5, 6]
+    
+    
+    step 4: [2, 4, 5, 6, 3] [1], currentvalue = 3
+    
+        while position > 0 and alist[position - 1] > currentvalue:
+            position = 4, alist[3] = 6: alist[4] = alist[3] = 5, alist: [2, 4, 5, 6, 6], (position--)
+            position = 3, alist[2] = 5: alist[3] = alist[2] = 5, alist: [2, 4, 5, 5, 6], (position--)
+            position = 2, alist[1] = 4: alist[2] = alist[1] = 4, alist: [2, 4, 4, 5, 6], (position--)
+            position = 1, alist[0] = 2: break
+        
+        alist[1] = 3, alist: [2, 3, 4, 5, 6]
+
+
+    step 5: [2, 3, 4, 5, 6, 1] [], currentvalue = 1
+    
+        while position > 0 and alist[position - 1] > currentvalue:
+            position = 5, alist[4] = 6: alist[5] = alist[4] = 6, alist: [2, 3, 4, 5, 6, 6], (position--)
+            position = 4, alist[3] = 5: alist[4] = alist[3] = 5, alist: [2, 3, 4, 5, 5, 6], (position--)
+            position = 3, alist[2] = 4: alist[3] = alist[2] = 4, alist: [2, 3, 4, 4, 5, 6], (position--)
+            position = 2, alist[1] = 3: alist[2] = alist[1] = 3, alist: [2, 3, 3, 4, 5, 6], (position--)
+            position = 1, alist[0] = 2: alist[1] = alist[0] = 2, alist: [2, 2, 3, 4, 5, 6], (position--)
+            position = 0: break
+        
+        alist[0] = 1, alist: [1, 2, 3, 4, 5, 6]
+    
+    """
 
 
 def shellSort(alist):
@@ -128,105 +182,106 @@ def mergeSort(alist):
         # 即：
         print("Merging", alist)
 
+    """
+    [5, 2, 6, 4, 3, 1]
+    |   [5, 2, 6]
+    |   |   [5] -> return [2]
+    |   |   [2, 6]
+    |   |   |   [2] -> return [2]
+    |   |   |   [6] -> return [6]
+    |   |   |           
+    |   |   |   step: alist: [2, 6], left: [2], right: [6]
+    |   |   |
+    |   |   |   while i < len([2]) and j < len([6])
+    |   |   |       i = 0, j = 0, k = 0: [2] < [6], alist[0] = 2, alist: [2, 6], (i++, k++)
+    |   |   |       i = 1, j = 0, k = 1: break
+    |   |   |       
+    |   |   |   while i < len([2]):
+    |   |   |       i = 1, k = 1: break
+    |   |   |          
+    |   |   |   while j < len([6]):
+    |   |   |       j = 0, k = 1: alist[1] = 6, alist: [2, 6], (j++, k++)
+    |   |   |       j = 1, k = 2: break
+    |   |   |           
+    |   |   |-> return [2, 6]
+    |   |   
+    |   |   step: alist: [5, 2, 6], left:[5], right: [2, 6]
+    |   |
+    |   |   while i < len([5]) and j < len([2, 6]):
+    |   |       i = 0, j = 0, k = 0: [5] > [2], alist[0] = 2, alist: [2, 2, 6], (j++, k++)
+    |   |       i = 0, j = 1, k = 1: [5] < [6], alist[1] = 5, alist: [2, 5, 6], (i++, k++)
+    |   |       i = 1, j = 1, k = 2: break
+    |   |
+    |   |   while i < len([5]):
+    |   |       i = 1, k = 2: break
+    |   |   
+    |   |   while j < len([2, 6]):
+    |   |       j = 1, k = 2: alist[2] = 6, alist: [2, 5, 6], (j++, k++)
+    |   |       j = 2, k = 3: break
+    |   |   
+    |   |-> return [2, 5, 6]
+    |   
+    |   [4, 3, 1]               
+    |   |   [4] -> return [4]
+    |   |   [3. 1]          
+    |   |   |   [3] -> return [3]
+    |   |   |   [1] -> return [1]
+    |   |   |
+    |   |   |   step: alist: [3, 1], left: [3], right[1]
+    |   |   |
+    |   |   |   while i < len([3]) and j < len([1]):
+    |   |   |       i = 0, j = 0, k = 0: [3] > [1], alist[0] = 1, alist: [1, 1], (j++, k++)
+    |   |   |       i = 0, j = 1, k = 1: break
+    |   |   |   
+    |   |   |   while i < len([3]):
+    |   |   |       i = 0, k = 1: alist[1] = 3, alist: [1, 3]
+    |   |   |   
+    |   |   |   while j < len([1]):
+    |   |   |       j = 1, k = 2: break
+    |   |   |   
+    |   |   |-> return [1, 3]
+    |   |   
+    |   |   step: left: [4], right: [1, 3]
+    |   |
+    |   |   while i < len([4]) and j < len([1, 3])
+    |   |       i = 0, j = 0, k = 0: [4] > [1], alist[0] = 1, alist[1, 3, 1], (j++, k++)
+    |   |       i = 0, j = 1, k = 1: [4] > [3], alist[1] = 3, alist[1, 3, 1], (j++, k++)
+    |   |       i = 0, j = 2, k = 2: break
+    |   |   
+    |   |   while i < len([4]):
+    |   |       i = 0, k = 2: alist[2] = 4, alist: [1, 3, 4], (i++, k++)
+    |   |       i = 1, k = 3: break
+    |   |   
+    |   |   while j < len([1, 3]):
+    |   |       j = 2, k = 3: break
+    |   |   
+    |   |-> return [1, 3, 4]
+    |   
+    |   step: alist: [5, 2, 6, 4, 3, 1], left: [2, 5, 6], right: [1, 3, 4]
+    |   
+    |   while i < len(2, 5, 6) and j < len([1, 3, 4]):
+    |       i = 0, j = 0, k = 0: [2] > [1], alist[0] = 1, alist: [1, 2, 6, 4, 3, 1], (j++, k++)
+    |       i = 0, j = 1, k = 1: [2] < [3], alist[1] = 2, alist: [1, 2, 6, 4, 3, 1], (i++, k++)
+    |       i = 1, j = 1, k = 2: [5] > [3], alist[2] = 3, alist: [1, 2, 3, 4, 3, 1], (j++, k++)
+    |       i = 1, j = 2, k = 3: [5] > [4], alist[3] = 4, alist: [1, 2, 3, 4, 3, 1], (j++, k++)
+    |       i = 1, j = 3, k = 4: break
+    |   
+    |   while i < len([2, 5, 6]):
+    |       i = 1, k = 4: alist[4] = 5, alist: [1, 2, 3, 4, 5, 1], (i++, k++)
+    |       i = 2, k = 5: alist[5] = 6, alist: [1, 2, 3, 4, 5, 6], (i++, k++)
+    |       i = 3, k = 6: break
+    |   
+    |   while j < len([1, 3, 4]):
+    |       j = 3, k = 6: break
+    |   
+    |-> return [1, 2, 3, 4, 5, 6]    
+    """
 
-"""
-[5, 2, 6, 4, 3, 1]
-|   [5, 2, 6]
-|   |   [5] -> return [2]
-|   |   [2, 6]
-|   |   |   [2] -> return [2]
-|   |   |   [6] -> return [6]
-|   |   |           
-|   |   |   step: alist: [2, 6], left: [2], right: [6]
-|   |   |
-|   |   |   while i < len([2]) and j < len([6])
-|   |   |       i = 0, j = 0, k = 0: [2] < [6], alist[0] = 2, alist: [2, 6], (i++, k++)
-|   |   |       i = 1, j = 0, k = 1: break
-|   |   |       
-|   |   |   while i < len([2]):
-|   |   |       i = 1, k = 1: break
-|   |   |          
-|   |   |   while j < len([6]):
-|   |   |       j = 0, k = 1: alist[1] = 6, alist: [2, 6], (j++, k++)
-|   |   |       j = 1, k = 2: break
-|   |   |           
-|   |   |-> return [2, 6]
-|   |   
-|   |   step: alist: [5, 2, 6], left:[5], right: [2, 6]
-|   |
-|   |   while i < len([5]) and j < len([2, 6]):
-|   |       i = 0, j = 0, k = 0: [5] > [2], alist[0] = 2, alist: [2, 2, 6], (j++, k++)
-|   |       i = 0, j = 1, k = 1: [5] < [6], alist[1] = 5, alist: [2, 5, 6], (i++, k++)
-|   |       i = 1, j = 1, k = 2: break
-|   |
-|   |   while i < len([5]):
-|   |       i = 1, k = 2: break
-|   |   
-|   |   while j < len([2, 6]):
-|   |       j = 1, k = 2: alist[2] = 6, alist: [2, 5, 6], (j++, k++)
-|   |       j = 2, k = 3: break
-|   |   
-|   |-> return [2, 5, 6]
-|   
-|   [4, 3, 1]               
-|   |   [4] -> return [4]
-|   |   [3. 1]          
-|   |   |   [3] -> return [3]
-|   |   |   [1] -> return [1]
-|   |   |
-|   |   |   step: alist: [3, 1], left: [3], right[1]
-|   |   |
-|   |   |   while i < len([3]) and j < len([1]):
-|   |   |       i = 0, j = 0, k = 0: [3] > [1], alist[0] = 1, alist: [1, 1], (j++, k++)
-|   |   |       i = 0, j = 1, k = 1: break
-|   |   |   
-|   |   |   while i < len([3]):
-|   |   |       i = 0, k = 1: alist[1] = 3, alist: [1, 3]
-|   |   |   
-|   |   |   while j < len([1]):
-|   |   |       j = 1, k = 2: break
-|   |   |   
-|   |   |-> return [1, 3]
-|   |   
-|   |   step: left: [4], right: [1, 3]
-|   |
-|   |   while i < len([4]) and j < len([1, 3])
-|   |       i = 0, j = 0, k = 0: [4] > [1], alist[0] = 1, alist[1, 3, 1], (j++, k++)
-|   |       i = 0, j = 1, k = 1: [4] > [3], alist[1] = 3, alist[1, 3, 1], (j++, k++)
-|   |       i = 0, j = 2, k = 2: break
-|   |   
-|   |   while i < len([4]):
-|   |       i = 0, k = 2: alist[2] = 4, alist: [1, 3, 4], (i++, k++)
-|   |       i = 1, k = 3: break
-|   |   
-|   |   while j < len([1, 3]):
-|   |       j = 2, k = 3: break
-|   |   
-|   |-> return [1, 3, 4]
-|   
-|   step: alist: [5, 2, 6, 4, 3, 1], left: [2, 5, 6], right: [1, 3, 4]
-|   
-|   while i < len(2, 5, 6) and j < len([1, 3, 4]):
-|       i = 0, j = 0, k = 0: [2] > [1], alist[0] = 1, alist: [1, 2, 6, 4, 3, 1], (j++, k++)
-|       i = 0, j = 1, k = 1: [2] < [3], alist[1] = 2, alist: [1, 2, 6, 4, 3, 1], (i++, k++)
-|       i = 1, j = 1, k = 2: [5] > [3], alist[2] = 3, alist: [1, 2, 3, 4, 3, 1], (j++, k++)
-|       i = 1, j = 2, k = 3: [5] > [4], alist[3] = 4, alist: [1, 2, 3, 4, 3, 1], (j++, k++)
-|       i = 1, j = 3, k = 4: break
-|   
-|   while i < len([2, 5, 6]):
-|       i = 1, k = 4: alist[4] = 5, alist: [1, 2, 3, 4, 5, 1], (i++, k++)
-|       i = 2, k = 5: alist[5] = 6, alist: [1, 2, 3, 4, 5, 6], (i++, k++)
-|       i = 3, k = 6: break
-|   
-|   while j < len([1, 3, 4]):
-|       j = 3, k = 6: break
-|   
-|-> return [1, 2, 3, 4, 5, 6]
-                
-            
-"""
 
 if __name__ == '__main__':
-    alist = [5, 2, 6, 4, 3, 1]
-    mergeSort(alist)
+    import random
+
+    alist = [random.randint(0, 10) for x in range(10)]
+
+    shellSort(alist)
     print(alist)
