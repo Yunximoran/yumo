@@ -1,6 +1,6 @@
 import os.path
 
-from lib.buildframe import BuildDir
+from lib.build import buildStructure
 
 import pytest
 
@@ -12,8 +12,6 @@ import pytest
 )
 def test_BuildDir(substructures):
     print("\nTEST BUILT DIR\n")
-    build = BuildDir(substructures=substructures)
+    build = buildStructure.BuildStructure(substructures=substructures)
 
     build.OutTreeFrame()
-
-

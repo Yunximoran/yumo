@@ -1,7 +1,5 @@
 import os
 
-__all__ = ['BuildProjectStructure']
-
 specialList = [
     ".git",
     ".idea",
@@ -10,9 +8,12 @@ specialList = [
 ]
 
 
-class BuildProjectStructure:
-    workDir = os.getcwd()  # 获取工作目录 -> 根目录
-    baseName = os.path.basename(workDir)
+class BuildStructure:
+    """
+        项目结构构建工具
+    """
+    workDir = os.getcwd()  # 获取工作目录绝对路径 -> 根目录
+    baseName = os.path.basename(workDir)  # 获取当前目录名称
     f = open(f"{os.path.basename(workDir)}.txt", 'w')
 
     def __init__(self,
@@ -100,5 +101,5 @@ class BuildProjectStructure:
 
     @staticmethod
     def addFile(filename, path=workDir):
-        """ 添加文件 """  # 在当前目录下添加文件
+        """ 新建文件 """  # 在当前目录下添加文件
         os.open(f"{path}/{filename}", os.O_CREAT | os.O_WRONLY)
