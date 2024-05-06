@@ -1,0 +1,20 @@
+<config>
+    <project>
+        <root>YuMo</root>
+        <root-absPath>D:/Code/python/YuMO</root-absPath>
+    </project>
+
+    <database>
+        <host>localhost</host>
+        <mysql>
+            <user>root</user>
+            <pass>ranxi160259</pass>
+            <port>3306</port>
+        </mysql>
+        <redis>
+            <port>6379</port>
+        </redis>
+    </database>
+
+
+</config>
