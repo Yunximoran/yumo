@@ -1,11 +1,12 @@
 import os
+import json
 
 specialList = [
     ".git",
     ".idea",
     ".pytest_cache",
     "__pycache__"
-]
+]   # python代码中一些比较特殊的包
 
 
 class BuildStructure:
@@ -30,29 +31,35 @@ class BuildStructure:
         # self.start(self.workDir)
         pass
 
-    def buildDir(self, currentDir):
+    def building(self, currentDir, substructures):
         """
-
+            构建项目底层结构
         :param currentDir: 当前目录
+        :param substructures: 构建目标列表
         :return:
         """
         sonDirList = [os.path.join(currentDir, son) for son in os.listdir(currentDir) if
-                      (son not in self.substructures) and os.path.isdir(os.path.join(currentDir, son))]
+                      (son not in substructures) and os.path.isdir(os.path.join(currentDir, son))]
         """
-            sonDirList: 只能存放 底层结构目录之外的文件
+            sonDirList: 只能存放构建目标之外的目录
         """
         # 怎么判断是否继续遍历下一级目录
 
         if not sonDirList and currentDir != self.workDir:
-            self.building(currentDir)
+            self.__building(currentDir, substructures)
         else:
             for sonDir in sonDirList:
-                self.buildDir(sonDir)
+                self.building(sonDir, substructures)
 
-    def building(self, currentDir):
-        with open(f'{currentDir}/yumo.py', 'w') as f:
-            pass
-        for elem in self.substructures:
+    @staticmethod
+    def __building(currentDir, substructures):
+        """
+
+        :param currentDir:
+        :return:
+        """
+        os.open(f"{currentDir}/yumo.py", os.O_CREAT | os.O_WRONLY)
+        for elem in substructures:
             elem_path = os.path.join(currentDir, elem)
             if not os.path.exists(elem_path):
                 os.makedirs(elem_path)
@@ -85,6 +92,10 @@ class BuildStructure:
                 else:
                     frame['file'].append(elem)
         if start == self.workDir:
+            if dump:
+                with open("yumo.json", "w", encoding='utf-8') as f:
+                    json.dump(frame, f, indent=4, ensure_ascii=False)
+
             return {self.baseName: frame}
 
 
