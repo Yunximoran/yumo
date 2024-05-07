@@ -2,6 +2,7 @@
     <project>
         <root>YuMo</root>
         <root-absPath>D:/Code/python/YuMO</root-absPath>
+        <version>1.0</version>
     </project>
 
     <database>
@@ -13,8 +14,7 @@
         </mysql>
         <redis>
             <port>6379</port>
+            <db>1</db>
         </redis>
     </database>
-
-
 </config>
