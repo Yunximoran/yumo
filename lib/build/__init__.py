@@ -4,18 +4,22 @@ import xml.etree.ElementTree as et
 
 __all__ = ['buildStructure', 'os', 'time']
 
-tree = et.parse('../../yumo.xml')
+xmlPath = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'yumo.xml')  # 当前文件所在目录
+print(xmlPath)
+
+tree = et.parse(xmlPath)
 
 root = tree.getroot()
 
-projectInformation = root.find("project")
-rootAbsPath = projectInformation.find("root-absPath")
-BaseName = projectInformation.find("root")
 
-
-def dirJoin(front, rear):
-    JoinAfter = os.path.join(front, rear)
+def dirJoin(start, *args):
+    JoinAfter = os.path.join(start, *args)
     return JoinAfter
+
+
+def AbsolutePath():
+    absolute = os.getcwd()
+    return absolute
 
 
 # dirPath应该都是相对路径

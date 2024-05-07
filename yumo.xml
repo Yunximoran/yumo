@@ -1,36 +1,12 @@
-<config>
-    <project>
-        <root>YuMo</root>
-        <root-absPath>D:/Code/python/YuMO</root-absPath>
-        <version>1.0</version>
+<base>
+    
+    <project name="YuMo" path="D:\Code\python\YuMotest">
+        <structure>
+            <dir>course</dir>
+            <dir>lib</dir>
+            <dir>main</dir>
+            <dir>test</dir>
+            <file>yumo.json</file>
+        </structure>
     </project>
-
-    <database>
-        <host>localhost</host>  <!-- 默认本机地址： 127.0.0.1-->
-
-        <mysql>
-            <user>root</user>
-            <pass>ranxi160259</pass>
-            <port>3306</port>
-        </mysql>
-
-        <redis>
-            <server>
-                <start>redis-server</start>
-                <end>redis-cli shutdown</end>
-            </server>
-            <port>6379</port>
-            <db>1</db>
-        </redis>
-
-    </database>
-
-    <proxy>
-        <mode>
-            <http>None</http>
-            <https>None</https>
-        </mode>
-        <port>1080</port>
-    </proxy>
-
-</config>
+</base>

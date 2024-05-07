@@ -14,10 +14,12 @@ class BuildStructure:
     """
     workDir = os.getcwd()  # 获取工作目录绝对路径 -> 根目录
     baseName = os.path.basename(workDir)  # 获取当前目录名称
-    f = open(f"{os.path.basename(workDir)}.txt", 'w')
+    dirLevel = [baseName]
+
+    projectFrame = {}
 
     def __init__(self,
-                 substructures,
+                 substructures=None,
                  mode=None
                  ):
         """
@@ -26,9 +28,7 @@ class BuildStructure:
         """
         self.substructures = substructures
         # self.start(self.workDir)
-        if mode == "build dir":
-            pass
-        self.OutTreeFrame()
+        pass
 
     def buildDir(self, currentDir):
         """
@@ -36,8 +36,8 @@ class BuildStructure:
         :param currentDir: 当前目录
         :return:
         """
-        sonDirList = [self.getAbsolutePath(currentDir, son) for son in os.listdir(currentDir) if
-                      (son not in self.substructures) and os.path.isdir(self.getAbsolutePath(currentDir, son))]
+        sonDirList = [os.path.join(currentDir, son) for son in os.listdir(currentDir) if
+                      (son not in self.substructures) and os.path.isdir(os.path.join(currentDir, son))]
         """
             sonDirList: 只能存放 底层结构目录之外的文件
         """
@@ -49,57 +49,51 @@ class BuildStructure:
             for sonDir in sonDirList:
                 self.buildDir(sonDir)
 
-    @staticmethod
-    def getAbsolutePath(head, rear):
-        return os.path.join(head, rear)
-
     def building(self, currentDir):
-        self.addFile('yumo.py', currentDir)
-        # os.open(f"{currentDir}/yumo.py", os.O_CREAT | os.O_WRONLY)
+        with open(f'{currentDir}/yumo.py', 'w') as f:
+            pass
         for elem in self.substructures:
-            elem_path = self.getAbsolutePath(currentDir, elem)
+            elem_path = os.path.join(currentDir, elem)
             if not os.path.exists(elem_path):
                 os.makedirs(elem_path)
 
-    def OutTreeFrame(self, currentDir=workDir, level=0):
-        OutFormat = ''.join(['  |' * level])
-        if currentDir == self.workDir:
-            print(self.baseName)
-            self.f.write(self.baseName + "\n")
-        sonElemList = os.listdir(currentDir)  # 获取当前目录子元素列表
-        if sonElemList:
-            for son in sonElemList:
-                if son in specialList:
-                    continue
-                son_path = self.getAbsolutePath(currentDir, son)
-                print(OutFormat + son)
-                self.f.write(OutFormat + son + "\n")
-                if os.path.isdir(son_path):
-                    self.OutTreeFrame(son_path, level + 1)
-
-    def addFileInAllDir(self, filename, currentDir=workDir):
+    def OutTreeFrame(self, start=workDir, frame=None, dump=False):  # 这里获取应该是当前层级
         """
-            在所有目录下创建文件
-        :param currentDir:
-        :param filename:
-        :return:
+            输出项目树结构
+        :param start:  开始目录
+        :param frame: 存储数据
+        :param dump: 是否保存到本地
+        
+        :type frame: dict
+        :return: 项目结构
         """
-        pass
-        # sonElemList = os.listdir(currentDir)
-        # if not sonElemList:
-        #     return
-        #
-        # if 'yumo.py' in sonElemList:
-        #     self.addFile(filename, currentDir)
-        # else:
-        #     for son in sonElemList:
-        #         son_path = self.getAbsolutePath(currentDir, son)
-        #         if os.path.isdir(son_path):
-        #             self.addFileInAllDir(filename, currentDir)
-        #         else:
-        #             pass
+        if frame is None:
+            frame = {}
 
-    @staticmethod
-    def addFile(filename, path=workDir):
-        """ 新建文件 """  # 在当前目录下添加文件
-        os.open(f"{path}/{filename}", os.O_CREAT | os.O_WRONLY)
+        elemList = os.listdir(start)
+        for elem in elemList:
+            if elem in specialList:
+                continue
+            path = os.path.join(start, elem)
+            if os.path.isdir(path):
+                frame[elem] = {}  # 基于当前目录创建新的字元素
+                self.OutTreeFrame(path, frame[elem])
+
+            else:
+                if 'file' not in frame:
+                    frame['file'] = [elem]
+                else:
+                    frame['file'].append(elem)
+        if start == self.workDir:
+            return {self.baseName: frame}
+
+
+tJson = {
+    "d1": {
+        "d2": {},
+        "d3": {},
+        "d4": {},
+        "file": {}  # 可以用集合， 同一目录不会出现后缀名一样的同名文件
+        # 问题在怎么定位当前层级
+    }
+}
