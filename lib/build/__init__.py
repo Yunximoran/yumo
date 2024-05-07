@@ -5,7 +5,7 @@ import xml.etree.ElementTree as et
 __all__ = ['buildStructure', 'os', 'time']
 
 xmlPath = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'yumo.xml')  # 当前文件所在目录
-print(xmlPath)
+
 
 tree = et.parse(xmlPath)
 root = tree.getroot()
@@ -32,5 +32,4 @@ def getAllChild(dirPath):
     child = os.listdir(dirPath)
     return child
 
-child = getAllChild(os.getcwd())
-print(child)
+
