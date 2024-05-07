@@ -6,15 +6,31 @@
     </project>
 
     <database>
-        <host>localhost</host>
+        <host>localhost</host>  <!-- 默认本机地址： 127.0.0.1-->
+
         <mysql>
             <user>root</user>
             <pass>ranxi160259</pass>
             <port>3306</port>
         </mysql>
+
         <redis>
+            <server>
+                <start>redis-server</start>
+                <end>redis-cli shutdown</end>
+            </server>
             <port>6379</port>
             <db>1</db>
         </redis>
+
     </database>
+
+    <proxy>
+        <mode>
+            <http>None</http>
+            <https>None</https>
+        </mode>
+        <port>1080</port>
+    </proxy>
+
 </config>
