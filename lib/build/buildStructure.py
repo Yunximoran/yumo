@@ -6,30 +6,15 @@ specialList = [
     ".idea",
     ".pytest_cache",
     "__pycache__"
-]   # python代码中一些比较特殊的包
+]  # python代码中一些比较特殊的包
 
 
 class BuildStructure:
     """
         项目结构构建工具
     """
-    workDir = os.getcwd()  # 获取工作目录绝对路径 -> 根目录
+    workDir = os.getcwd()  # 获取工作目录绝对路径
     baseName = os.path.basename(workDir)  # 获取当前目录名称
-    dirLevel = [baseName]
-
-    projectFrame = {}
-
-    def __init__(self,
-                 substructures=None,
-                 mode=None
-                 ):
-        """
-            搭建 项目结构
-        :param substructures: 项目 底层结构
-        """
-        self.substructures = substructures
-        # self.start(self.workDir)
-        pass
 
     def buildSubStructure(self, currentDir, substructures):
         """
@@ -97,4 +82,3 @@ class BuildStructure:
                     json.dump(frame, f, indent=4, ensure_ascii=False)
 
             return {self.baseName: frame}
-

@@ -335,7 +335,8 @@
         },
         "file": [
             "README.md",
-            "update.py",
+            "yumo.json",
+            "yumo.py",
             "yumo.xml"
         ],
         "test": {

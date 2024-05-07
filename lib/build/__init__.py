@@ -8,8 +8,9 @@ xmlPath = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__)
 print(xmlPath)
 
 tree = et.parse(xmlPath)
-
 root = tree.getroot()
+
+projectRootPath = root.find("project").get('path')  # 项目根目录
 
 
 def dirJoin(start, *args):
@@ -29,3 +30,7 @@ def getInfo(dirPath):
 
 def getAllChild(dirPath):
     child = os.listdir(dirPath)
+    return child
+
+child = getAllChild(os.getcwd())
+print(child)

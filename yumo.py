@@ -31,7 +31,5 @@ def getStructure(loadPath=os.getcwd()):
         json.dump(frame, f, indent=4, ensure_ascii=False)
 
 
-upxml()
-
 
 
