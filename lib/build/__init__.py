@@ -8,10 +8,14 @@ tree = et.parse('../../yumo.xml')
 
 root = tree.getroot()
 
-for config in root.findall('project'):
-    rootDirName = config.find("root").text
-    rootAbsPath = config.find("root-absPath").text
-    print(rootDirName, rootAbsPath)
+projectInformation = root.find("project")
+rootAbsPath = projectInformation.find("root-absPath")
+BaseName = projectInformation.find("root")
+
+
+def dirJoin(front, rear):
+    JoinAfter = os.path.join(front, rear)
+    return JoinAfter
 
 
 # dirPath应该都是相对路径
@@ -20,4 +24,4 @@ def getInfo(dirPath):
 
 
 def getAllChild(dirPath):
-    pass
+    child = os.listdir(dirPath)
