@@ -31,7 +31,7 @@ class BuildStructure:
         # self.start(self.workDir)
         pass
 
-    def building(self, currentDir, substructures):
+    def buildSubStructure(self, currentDir, substructures):
         """
             构建项目底层结构
         :param currentDir: 当前目录
@@ -49,7 +49,7 @@ class BuildStructure:
             self.__building(currentDir, substructures)
         else:
             for sonDir in sonDirList:
-                self.building(sonDir, substructures)
+                self.buildSubStructure(sonDir, substructures)
 
     @staticmethod
     def __building(currentDir, substructures):
@@ -98,13 +98,3 @@ class BuildStructure:
 
             return {self.baseName: frame}
 
-
-tJson = {
-    "d1": {
-        "d2": {},
-        "d3": {},
-        "d4": {},
-        "file": {}  # 可以用集合， 同一目录不会出现后缀名一样的同名文件
-        # 问题在怎么定位当前层级
-    }
-}
