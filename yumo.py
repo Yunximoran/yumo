@@ -7,6 +7,10 @@ import json
 
 
 def upxml():
+    """
+        更新项目配置文件
+    :return:
+    """
     tree = et.parse('yumo.xml')
     root = tree.getroot()
     project = root.find("project")
@@ -15,9 +19,8 @@ def upxml():
 
 
 def getStructure(loadPath=os.getcwd()):
-    # 获取项目结构
     """
-
+        获取项目结构
     :param loadPath: 指定保存路径， 默认保存在当前目录
     :return:
     """
@@ -28,7 +31,7 @@ def getStructure(loadPath=os.getcwd()):
         json.dump(frame, f, indent=4, ensure_ascii=False)
 
 
-getStructure()
+upxml()
 
 
 

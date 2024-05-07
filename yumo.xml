@@ -1,6 +1,6 @@
 <base>
     
-    <project name="YuMo" path="D:\Code\python\YuMotest">
+    <project name="YuMo" path="D:\Code\python\YuMo">
         <structure>
             <dir>course</dir>
             <dir>lib</dir>
