@@ -4,10 +4,8 @@ from lib.build.buildStructure import BuildStructure
 from lxml import etree
 import subprocess
 import json
-import sys
 import os
 
-args = sys.argv  # args获取参数
 
 # 切换当前目录为工作目录
 workPath = os.path.dirname(__file__)  # dirname获取文件所在目录， __file__获取文件绝对路径 *( dirname 包含 __file__ )
@@ -31,8 +29,9 @@ class Run:
 
     def start(self, name):  # 启动项目
         print(f"project starting {name}")
-        OutPut = subprocess.Popen(['python', f"{self.path}\\yumo.py"],  # 创建执行命令
+        OutPut = subprocess.Popen(['python', f"yumo.py"],  # 创建执行命令
                                   shell=True,
+                                  cwd=os.path.join(workPath, self.path),    # 设置工作目录
                                   stdout=subprocess.PIPE,  # 子进程输出
                                   stderr=subprocess.PIPE,  # 子进程错误
                                   encoding="utf-8",
@@ -93,9 +92,3 @@ class Run:
 
 Run()
 
-if __name__ == '__main__':
-    xml = etree.parse('yumo.xml')
-
-    res = xml.xpath(f"//projectConf/nav[@house='main']/list[@class='Crawler']//project[@name='demo']/args/text()")[0]
-    res = res.split(", ")
-    print(res)
