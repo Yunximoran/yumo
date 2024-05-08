@@ -10,54 +10,72 @@ import os
 args = sys.argv  # args获取参数
 
 # 切换当前目录为工作目录
-workPath = os.path.dirname(__file__)    # dirname获取文件所在目录， __file__获取文件绝对路径
-                                        # dirname 包含 __file__
-os.chdir(workPath)
+workPath = os.path.dirname(__file__)  # dirname获取文件所在目录， __file__获取文件绝对路径 *( dirname 包含 __file__ )
+os.chdir(workPath)  # workPath: D:\Code\python\YuMo
 
 
 class Run:
     __tree = etree.parse('yumo.xml')
-    __root = __tree.getroot()
 
-    def __init__(self, *args, attr="main"):     # 初始化进程， 定位启动目标
+    def __init__(self, *args, attr="main"):  # 初始化进程， 定位启动目标
         # 输入项目名称， 怎样准确定位到文件所在为止
-        self.config(attr)
-        self.attr = attr
-        label = input("启动项目分类: ")
-        startproject = input("启动项目名称: ")
-        print(f"running: {startproject}")
-        self.start(startproject, label)
+        self.UpdateProject()  # 更新项目信息
 
-    def start(self, name, label, *args):  # 启动项目
-        itemPath = f"{self.attr}\\{label}\\{name}\\yumo.py"
-        print(f"project working {itemPath}")
-        # self.__changeWorkEnvironment(itemPath)  # 切换工作环境
-        OutPut = subprocess.Popen(['python', itemPath], shell=True, encoding='utf-8')
-        print(OutPut.communicate()[0])  # 获取输出结果
-        print("project finish")
+        self.label = input("启动项目分类: ")
+        self.startproject = input("启动项目名称: ")
+        self.attr = attr
+
+        self.config(attr)
+        print(f"running: {self.startproject}")
+        self.start(self.startproject)
+
+    def start(self, name):  # 启动项目
+        print(f"project starting {name}")
+        OutPut = subprocess.Popen(['python', f"{self.path}\\yumo.py"],  # 创建执行命令
+                                  shell=True,
+                                  stdout=subprocess.PIPE,  # 子进程输出
+                                  stderr=subprocess.PIPE,  # 子进程错误
+                                  encoding="utf-8",
+                                  )
+        print(OutPut.stdout.read())  # 输出info
+        print(OutPut.stderr.read())  # 输出err
+        """
+        PIPE 表示为子进程创建新的管道
+        DEVNULL 表示使用os.devnull, 默认使用None，表示什么都不做
+        
+        stderr 可以合并到 stdout 一起输出
+        
+        """
+        print("project finished")
 
     def close(self):
         pass
 
     def config(self, attr):
         # 获取项目配置
-        Conf = self.__root.find()
+        print(attr, self.label, self.startproject)  # 项目仓库， 项目分类， 项目民
 
+        rootConf = self.__tree.xpath(  # 定位项目配置仓库
+            f"//projectConf/nav[@house='{attr}']/list[@class='{self.label}']"
+        )[0]
 
+        rootPath = rootConf.xpath(  # 获取项目配置仓库地址
+            f"address/text()"
+        )[0]
+
+        self.args = rootConf.xpath("projects/project/args/text()")[0].split(", ")  # 获取项目运行参数
+        self.path = os.path.join(rootPath, self.startproject)  # 获取启动项目路径
+
+    @staticmethod
+    def __changeWorkDir(path):
+        os.chdir(path)
 
     def UpdateProject(self):  # 更新项目
         self.__upxml()
         self.__getStructure()
 
-    def __upxml(self):
-        """
-            更新项目配置文件
-        :return:
-        """
-
-        project = self.__root.find("project")
-        project.set('path', os.getcwd())
-        self.__tree.write('yumo.xml', encoding='utf-8', method='xml')
+    def __upxml(self):  # 更新xml文件
+        pass
 
     @staticmethod
     def __getStructure(loadPath=os.getcwd()):
@@ -74,3 +92,10 @@ class Run:
 
 
 Run()
+
+if __name__ == '__main__':
+    xml = etree.parse('yumo.xml')
+
+    res = xml.xpath(f"//projectConf/nav[@house='main']/list[@class='Crawler']//project[@name='demo']/args/text()")[0]
+    res = res.split(", ")
+    print(res)

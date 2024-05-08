@@ -155,6 +155,10 @@
                     ]
                 }
             },
+            "file": [
+                "yumo.logs",
+                "__init__.py"
+            ],
             "yumodb": {
                 "mongo": {
                     "file": [
@@ -220,36 +224,22 @@
                 "file": [
                     "__init__.py"
                 ]
-            },
-            "file": [
-                "__init__.py"
-            ]
+            }
         },
         "main": {
             "Big Data": {},
-            "CLoud Computing": {},
+            "Cloud Computing": {},
             "Crawler": {
-                "file": [
-                    "main.py"
-                ]
+                "demo": {
+                    "file": [
+                        "yumo.py"
+                    ]
+                }
             },
             "Data Analysis": {},
             "Data Base": {},
             "Machine Learning": {},
-            "MySQL": {
-                "file": [
-                    "yumo.py"
-                ]
-            },
             "OpenCV": {
-                "DEMO": {
-                    "file": [
-                        "open.py"
-                    ]
-                },
-                "file": [
-                    "main.py"
-                ],
                 "material": {
                     "image": {
                         "file": [
@@ -266,6 +256,15 @@
                     ]
                 },
                 "moduls": {
+                    "network": {
+                        "parse": {
+                            "lxml": {
+                                "file": [
+                                    "OverView.ipynb"
+                                ]
+                            }
+                        }
+                    },
                     "system": {
                         "os": {
                             "file": [
@@ -315,13 +314,15 @@
         },
         "material": {
             "documents": {},
+            "image": {},
             "information": {
                 "file": [
                     "course.md",
                     "lib.md",
                     "main.md"
                 ]
-            }
+            },
+            "video": {}
         },
         "file": [
             "README.md",

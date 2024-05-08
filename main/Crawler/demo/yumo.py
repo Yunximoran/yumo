@@ -1,9 +1,10 @@
-import requests
+import numpy as np
+import os
 
-headers = {
-    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0"
-}
+word = os.path.dirname(__file__)
+os.chdir(word)
+a = [1, 2, 3, 4, 5]
+print(np.array(a))
+print(a)
 
-resp = requests.get("https://baidu.com",headers=headers)
 
-print(resp.text)

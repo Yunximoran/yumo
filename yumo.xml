@@ -2,80 +2,79 @@
 
 <baseConf name="YuMo">
     <projectConf>
-        <nav name="main">
+        <nav house="main">
             <list class="Big Data">
                 <projects>
-                    <porject>
-                        <name>#</name>  <!-- 项目名字 -->
-                        <args>#</args>  <!-- 项目参数 -->
-                    </porject>
+                    <project name="#">
+                          
+                        <args>#</args>  
+                    </project>
                 </projects>
-                <attr>main\Big Data</attr>
+                <address>main\Big Data</address>
             </list>
 
             <list class="Cloud Computing">
                 <projects>
-                    <porject>
-                        <name>#</name>  <!-- 项目名字 -->
-                        <args>#</args>  <!-- 项目参数 -->
-                    </porject>
+                    <project name="#">
+                          
+                        <args>#</args>  
+                    </project>
                 </projects>
-                <attr>main\Cloud Computing</attr>
+                <address>main\Cloud Computing</address>
             </list>
 
             <list class="Crawler">
                 <projects>
-                    <porject>
-                        <name>demo</name>  <!-- 项目名字 -->
-                        <args>#</args>  <!-- 项目参数 -->
-                    </porject>
+                    <project name="demo">
+                        <args>1, 2, 3, 4, 5, 6</args>
+                    </project>
                 </projects>
-                <attr>main\Crawler</attr>
+
+                <address>main\Crawler</address>  
             </list>
 
             <list class="Data Analysis">
                 <projects>
-                    <porject>
-                        <name>#</name>  <!-- 项目名字 -->
-                        <args>#</args>  <!-- 项目参数 -->
-                    </porject>
+                    <project name="#">
+                          
+                        <args>#</args>  
+                    </project>
                 </projects>
-                <attr>main\Data Analysis</attr>
+                <address>main\Data Analysis</address>
             </list>
 
             <list class="Data Base">
                 <projects>
-                    <porject>
-                        <name>#</name>  <!-- 项目名字 -->
-                        <args>#</args>  <!-- 项目参数 -->
-                    </porject>
+                    <project name="#">
+                        <args>#</args>  
+                    </project>
                 </projects>
-                <attr>main\Data Base</attr>
+                <address>main\Data Base</address>
             </list>
 
             <list class="Machine Learning">
                 <projects>
-                    <porject>
-                        <name>#</name>  <!-- 项目名字 -->
-                        <args>#</args>  <!-- 项目参数 -->
-                    </porject>
+                    <project name="#">
+                          
+                        <args>#</args>  
+                    </project>
                 </projects>
-                <attr>main\Machine Learning</attr>
+                <address>main\Machine Learning</address>
             </list>
 
             <list class="OpenCV">
                 <projects>
-                    <porject>
-                        <name>#</name>  <!-- 项目名字 -->
-                        <args>#</args>  <!-- 项目参数 -->
-                    </porject>
+                    <project name="#">
+                          
+                        <args>#</args>  
+                    </project>
                 </projects>
-                <attr>main\OpenCV</attr>
+                <address>main\OpenCV</address>
             </list>
         </nav>
     </projectConf>
 
-    <database>  <!-- 数据库配置信息 -->
+    <database>  
         None
     </database>
 </baseConf>
