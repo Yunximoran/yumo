@@ -1,15 +1,41 @@
+from .buildStructure import BuildStructure
+
 import os
-import time
-import xml.etree.ElementTree as et
 
-__all__ = ['buildStructure', 'os', 'time']
+__all__ = ['buildStructure']
 
-# xmlPath = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'yumo.xml')  # 当前文件所在目录
-#
-# tree = et.parse(xmlPath)
-# root = tree.getroot()
-#
-# projectRootPath = root.find("project").get('path')  # 项目根目录
+BuildStructure()
+
+
+def makedir(Cpath):
+    if not os.path.exists(Cpath):
+        os.makedirs(Cpath)
+        print(f"create directory {Cpath}, finish")
+
+
+class Build:
+    def __init__(self):
+        pass
+
+    def newProject(self, Name, attr):
+        """
+            创建新项目
+        :param Name: 项目名
+        :param attr: 创建地址
+        :return:
+        """
+        self.__Init(None)
+
+    @staticmethod
+    def __Init(structure, main="yumo"):
+        """
+            初始化项目
+        :param structure:  初始化项目结构
+        :param main: 项目主要文件
+        :return:
+        """
+        allTypeFile = ['.xml', '.py']
+        files = [f"{main}{T}" for T in allTypeFile]
 
 
 def dirJoin(start, *args):
@@ -34,7 +60,6 @@ def getInfo(dirPath):
 
 
 def getAllChild(dirPath):
-
     child = os.listdir(dirPath)
     return child
 

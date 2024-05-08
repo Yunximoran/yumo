@@ -17,10 +17,6 @@
                     "yumo.py"
                 ]
             },
-            "file": [
-                "course.txt",
-                "yumo.py"
-            ],
             "crawler": {
                 "book": {},
                 "document": {},
@@ -106,7 +102,10 @@
                 "file": [
                     "yumo.py"
                 ]
-            }
+            },
+            "file": [
+                "yumo.py"
+            ]
         },
         "lib": {
             "build": {
@@ -155,10 +154,11 @@
                     ]
                 }
             },
-            "file": [
-                "yumo.logs",
-                "__init__.py"
-            ],
+            "syskit": {
+                "file": [
+                    "__init__.py"
+                ]
+            },
             "yumodb": {
                 "mongo": {
                     "file": [
@@ -224,13 +224,22 @@
                 "file": [
                     "__init__.py"
                 ]
-            }
+            },
+            "file": [
+                "__init__.py"
+            ]
         },
         "main": {
             "Big Data": {},
             "Cloud Computing": {},
             "Crawler": {
                 "demo": {
+                    "source": {
+                        "file": [
+                            "Fanyi.html",
+                            "Home.html"
+                        ]
+                    },
                     "file": [
                         "yumo.py"
                     ]

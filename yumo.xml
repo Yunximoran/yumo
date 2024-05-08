@@ -2,79 +2,147 @@
 
 <baseConf name="YuMo">
     <projectConf>
-        <nav house="main">
+        <nav house="main"> <!-- navigation bar - [导航 栏] -->
             <list class="Big Data">
                 <projects>
                     <project name="#">
-                          
-                        <args>#</args>  
+                        <args>
+                            <li>#</li>
+                        </args>
                     </project>
                 </projects>
-                <address>main\Big Data</address>
+                <address>main\\Big Data</address>
             </list>
 
             <list class="Cloud Computing">
                 <projects>
                     <project name="#">
-                          
-                        <args>#</args>  
+
+                        <args>
+                            <li>#</li>
+                        </args>
                     </project>
                 </projects>
-                <address>main\Cloud Computing</address>
+                <address>main\\Cloud Computing</address>
             </list>
 
             <list class="Crawler">
                 <projects>
                     <project name="demo">
-                        <args>1, 2, 3, 4, 5, 6</args>
+                        <args> <!--li 是待定参数， 标签民可根据实际更改 ？？？-->
+                            <li>URL=[https://www.baidu.com, https://fanyi.baidu.com]</li>
+                            <li>None</li>
+                        </args>   <!-- 项目参数 -->
+
                     </project>
                 </projects>
 
-                <address>main\Crawler</address>  
+                <address>main\Crawler</address>
             </list>
 
             <list class="Data Analysis">
                 <projects>
                     <project name="#">
-                          
-                        <args>#</args>  
+
+                        <args>
+                            <li>#</li>
+                        </args>
                     </project>
                 </projects>
-                <address>main\Data Analysis</address>
+                <address>main\\Data Analysis</address>
             </list>
 
             <list class="Data Base">
                 <projects>
                     <project name="#">
-                        <args>#</args>  
+                        <args>
+                            <li>#</li>
+                        </args>
                     </project>
                 </projects>
-                <address>main\Data Base</address>
+                <address>main\\Data Base</address>
             </list>
 
             <list class="Machine Learning">
                 <projects>
                     <project name="#">
-                          
-                        <args>#</args>  
+
+                        <args>
+                            <li>#</li>
+                        </args>
                     </project>
                 </projects>
-                <address>main\Machine Learning</address>
+                <address>main\\Machine Learning</address>
             </list>
 
             <list class="OpenCV">
                 <projects>
                     <project name="#">
-                          
-                        <args>#</args>  
+
+                        <args>
+                            <li>#</li>
+                        </args>
                     </project>
                 </projects>
-                <address>main\OpenCV</address>
+                <address>main\\OpenCV</address>
             </list>
         </nav>
+
+        <!-- 项目配置模板
+        <nav house="course">
+            <list class="Project Class">
+                <projects>
+                    <project name="Project Name">
+                        <args>
+<li>#</li></args>
+                    </project>
+                </projects>
+                ...
+                <address>HouseName\\Project</address>
+                ...
+            </list>
+            ...
+        </nav>
+        -->
     </projectConf>
 
-    <database>  
-        None
+    <database host="localhost 127.0.0.1"> <!-- 数据库配置 -->
+        <mysql port="3306">
+            <users>
+                <user>
+                    <name>root</name>
+                    <password>ranxi160259</password>
+                </user>
+
+                <user>
+                    <name>yumo</name>
+                    <password>ranxi160259</password>
+                </user>
+            </users>
+        </mysql>
+
+        <mongo port="#">
+            None
+        </mongo>
+
+        <redis port="6379">
+            None
+        </redis>
     </database>
+
+    <proxys>    <!-- 代理服务器配置 -->
+        <proxy server="Clash of Windows">
+            <type>http</type>       <!-- 代理类型 Http -->
+            <host>127.0.0.1</host>  <!-- 主机地址 本地  -->
+            <port>1080</port>       <!-- 代理端口 1080 -->
+        </proxy>
+
+        <!--    代理配置模板
+        <proxy server="Proxy Server Name">
+            <type>Proxy Type [http | sock5]</type>
+            <host>Proxy Host Address</host>
+            <port>Proxy Use Port</port>
+        </proxy>
+        -->
+    </proxys>
 </baseConf>
