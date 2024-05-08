@@ -1,13 +1,79 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<baseConf name="#">
-    <projects name="#">   <!-- 项目配置信息-->
-        <project name="#">#</project>
-        <project name="#">#</project>
-        <project name="#">#</project>
-        <project name="#">#</project>
-        <project name="#">#</project>
-    </projects>
+<baseConf name="YuMo">
+    <projectConf>
+        <nav name="main">
+            <list class="Big Data">
+                <projects>
+                    <porject>
+                        <name>#</name>  <!-- 项目名字 -->
+                        <args>#</args>  <!-- 项目参数 -->
+                    </porject>
+                </projects>
+                <attr>main\Big Data</attr>
+            </list>
+
+            <list class="Cloud Computing">
+                <projects>
+                    <porject>
+                        <name>#</name>  <!-- 项目名字 -->
+                        <args>#</args>  <!-- 项目参数 -->
+                    </porject>
+                </projects>
+                <attr>main\Cloud Computing</attr>
+            </list>
+
+            <list class="Crawler">
+                <projects>
+                    <porject>
+                        <name>demo</name>  <!-- 项目名字 -->
+                        <args>#</args>  <!-- 项目参数 -->
+                    </porject>
+                </projects>
+                <attr>main\Crawler</attr>
+            </list>
+
+            <list class="Data Analysis">
+                <projects>
+                    <porject>
+                        <name>#</name>  <!-- 项目名字 -->
+                        <args>#</args>  <!-- 项目参数 -->
+                    </porject>
+                </projects>
+                <attr>main\Data Analysis</attr>
+            </list>
+
+            <list class="Data Base">
+                <projects>
+                    <porject>
+                        <name>#</name>  <!-- 项目名字 -->
+                        <args>#</args>  <!-- 项目参数 -->
+                    </porject>
+                </projects>
+                <attr>main\Data Base</attr>
+            </list>
+
+            <list class="Machine Learning">
+                <projects>
+                    <porject>
+                        <name>#</name>  <!-- 项目名字 -->
+                        <args>#</args>  <!-- 项目参数 -->
+                    </porject>
+                </projects>
+                <attr>main\Machine Learning</attr>
+            </list>
+
+            <list class="OpenCV">
+                <projects>
+                    <porject>
+                        <name>#</name>  <!-- 项目名字 -->
+                        <args>#</args>  <!-- 项目参数 -->
+                    </porject>
+                </projects>
+                <attr>main\OpenCV</attr>
+            </list>
+        </nav>
+    </projectConf>
 
     <database>  <!-- 数据库配置信息 -->
         None
