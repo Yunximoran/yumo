@@ -1,12 +1,15 @@
-<base>
-    
-    <project name="YuMo" path="D:\Code\python\YuMo">
-        <structure>
-            <dir>course</dir>
-            <dir>lib</dir>
-            <dir>main</dir>
-            <dir>test</dir>
-            <file>yumo.json</file>
-        </structure>
-    </project>
-</base>
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<baseConf name="#">
+    <projects name="#">   <!-- 项目配置信息-->
+        <project name="#">#</project>
+        <project name="#">#</project>
+        <project name="#">#</project>
+        <project name="#">#</project>
+        <project name="#">#</project>
+    </projects>
+
+    <database>  <!-- 数据库配置信息 -->
+        None
+    </database>
+</baseConf>

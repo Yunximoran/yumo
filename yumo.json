@@ -112,7 +112,6 @@
             "build": {
                 "file": [
                     "buildStructure.py",
-                    "yumo.py",
                     "__init__.py"
                 ]
             },
@@ -238,15 +237,6 @@
             "Data Base": {},
             "Machine Learning": {},
             "MySQL": {
-                "mysql": {
-                    "logs": {
-                        "file": [
-                            "client.log",
-                            "Information.log",
-                            "test_client.log"
-                        ]
-                    }
-                },
                 "file": [
                     "yumo.py"
                 ]
