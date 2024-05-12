@@ -36,7 +36,7 @@ class Run:
 
         # print(args, path)
 
-        shell = ['python', 'yumo.py']
+        shell = ['python', '0.QtWidgets.py']
         shell.extend(args)  # 将参数添加进命令
 
         print(f"project starting {startproject}")

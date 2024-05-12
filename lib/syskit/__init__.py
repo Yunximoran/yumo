@@ -8,11 +8,12 @@ import colorlog
 
 """
 
+
 # 系统处理工具
 
 def parseArgs():
     """
-        解析传递参数
+        解析超参数
     """
     results = {}
     args = sys.argv
@@ -34,6 +35,13 @@ def parseArgs():
             index += 1
 
     return results
+
+
+def loadConf(XPath):
+    """
+        导入xml文件
+    :return:
+    """
 
 
 def logger(name):
