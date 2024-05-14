@@ -63,10 +63,10 @@ class YuMoMainWindows(QMainWindow):
         # QAction 可触发选项
         super().__init__()
 
-        exitAct = QAction(QIcon('exit.png'), "&Exit", self)
+        exitAct = QAction(QIcon('exit.png'), "Exit", self)
 
-        exitAct.setShortcut("Ctrl+Q")
-        exitAct.setStatusTip('Exit application')
+        exitAct.setShortcut("Ctrl+Q")   # 设置快捷键
+        exitAct.setStatusTip('Exit application')    # 设置状态提示
         exitAct.triggered.connect(QApplication.instance().quit)  # 组件对象，组件行为，组件绑定函数
         # triggered 触发， 启动
 
@@ -74,8 +74,8 @@ class YuMoMainWindows(QMainWindow):
         # showMessage() 状态栏显示信息
 
         menubar = self.menuBar()  # 创建菜单栏
-        fileMenu = menubar.addMenu('&File')  # 添加子菜单1
-        fileMenu2 = menubar.addMenu("&Test")  # 添加子菜单2
+        fileMenu = menubar.addMenu('File')  # 添加子菜单1
+        fileMenu2 = menubar.addMenu("Test")  # 添加子菜单2
 
         impMenu = QMenu("Import", self)  # 创建菜单对象
         impAct = QAction("Import mail", self)  # 创建菜单事件
