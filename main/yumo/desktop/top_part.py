@@ -13,13 +13,20 @@ class TopPart(QVBoxLayout):
 
     def init(self):
         self.load_widgets()
+        self.load_config()
+        self.loading()
+
+    def loading(self):
+        self.addWidget(self.menu)
+        pass
 
     def load_widgets(self):
         self.menu = Menu(self.parent())
-        self.addWidget(self.menu)
+        # self.addWidget(self.menu)
+        pass
 
     def load_config(self):
-        # self.setSizeConstraint()
+        self.setMenuBar(self.menu)
         pass
 
 
@@ -63,7 +70,9 @@ class Menu(QMenuBar):
                     self.bandEvent(childAct, nextElem)
 
     def load_config(self):
-        pass
+        self.setStyleSheet("""
+            color: #fff;
+        """)
 
     @staticmethod
     def bandEvent(Act, args):

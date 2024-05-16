@@ -1,7 +1,9 @@
 import sys
 import os
+import cv2
 
 from PyQt6.QtWidgets import QApplication
+from PyQt6.QtCore import Qt
 
 from lxml import etree
 
@@ -14,3 +16,9 @@ def loadConf(label):
     print(etree.tostring(xml))
     style = None
     return style
+
+
+def loadImg(iurl):
+    img = cv2.imread(iurl)
+    h, w = img.shape[0], img.shape[1]
+    return img, h, w

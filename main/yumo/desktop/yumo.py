@@ -1,3 +1,5 @@
+import time
+
 from Global import *
 
 from PyQt6.QtWidgets import (
@@ -7,6 +9,7 @@ from PyQt6.QtWidgets import (
     QMenu,  # 菜单
     QTextEdit,  # 文本编辑器
     QLineEdit,
+    QLabel,
     QPushButton,  # 按钮
     QHBoxLayout,  # 水平布局管理
     QVBoxLayout,  # 垂直布局管理
@@ -35,7 +38,9 @@ from PyQt6.QtCore import (
     QTime,
     QDate,
     QDateTime,
+    QEvent
 )
+import cv2
 
 from top_part import TopPart, APPLICATION
 from mid_part import MidPart
@@ -44,40 +49,36 @@ from but_part import ButPart
 from lxml import etree
 
 
-def load_config(label):
-    xml = etree.parse('yumo.xml')
-    style = None
-    return style
-
-
 class YuMo(QWidget):
     """
         主窗口
     """
+    # background-color: #626262;
     style = """
-        background-color: #626262;
         background-image: url('image\\back.jpg');
         color: #333;
-        radius: 50px;
+        border: 3px solid lightblue;
     """
 
     def __init__(self):
         super().__init__()
 
         self.Init()
-
-        self.setGeometry(30, 30, 1226, 648)
-        self.setWindowTitle("Home")
         self.show()
 
         sys.exit(APPLICATION.exec())
 
     def Init(self):
+        self.load_widgets()
         self.load_layout()
         self.load_config()
 
+    def load_widgets(self):
+        pass
+
     def load_layout(self):
         self.MainLayout = QVBoxLayout(self)
+        self.MainLayout.setContentsMargins(0, 0, 0, 0)  # 设置布局页边距
 
         self.topPart = TopPart(self)
         self.midPart = MidPart(self)
@@ -88,36 +89,40 @@ class YuMo(QWidget):
         self.MainLayout.addLayout(self.butPart)
 
     def load_config(self):
-        self.setStyleSheet(self.style)
-        self.setWindowOpacity(0.8)
+        # self.setWindowOpacity(0.8)    # 设置透明度
         self.setWindowIcon(QIcon(r"image\\back.jpg"))  # 设置图标
+        # self.setLayout(self.MainLayout)  # 设置窗口基本布局
+        self.setStyleSheet(self.style)  # 设置窗口样式
+        self.setGeometry(30, 30, 1024, 600)  # 设置窗口大小
+        self.setWindowTitle("Home")  # 设置窗口布局
 
-    def keyPressEvent(self, a0):
-        """
-         ENTER == 16777220
-        :param a0:
-        :return:
-        """
-        self.Press_key = a0.key()
-        print(self.Press_key)
+    def eventFilter(self, a0, a1):
+        pass
 
-    def keyReleaseEvent(self, a0):
-        # print(type(a0))
-        self.Release_key = a0.key()
-        print(self.Release_key)
+    def paintEvent(self, a0):
+        pixmap = QPixmap("image\\preview.jpg")
+        pixmap = pixmap.scaled(self.width(), self.height())  # param: width, height
+        palette = QPalette()
+        palette.setBrush(QPalette.ColorRole.Window, QBrush(pixmap))
+        self.setPalette(palette)
 
     def mousePressEvent(self, a0):
         # 鼠标点击事件
         # print(type(a0))
-        pass
+        if a0.button() == Qt.MouseButton.LeftButton:
+            self.s = time.time()
+            print('click')
 
     def mouseReleaseEvent(self, a0):
         # 鼠标释放事件
-        pass
+        print("release")
+        d = time.time()
+        print(self.s - d)
 
     def mouseMoveEvent(self, a0):
-        # 鼠标移动事件
-        pass
+        # 鼠标移动事件, 按住移动
+        pos = a0.pos()
+        print(pos)
 
 
 # Qt.EnterKeyType.
