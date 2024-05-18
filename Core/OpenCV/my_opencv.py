@@ -48,8 +48,8 @@ class ShowImg(QWidget):
         self.__build_top_layout()
         self.__build_but_layout()
 
-        self.MainLayout.addLayout(self.TopLayout, 3)
-        self.MainLayout.addLayout(self.ButLayout, 1)
+        self.MainLayout.addLayout(self.TopLayout)
+        self.MainLayout.addLayout(self.ButLayout)
 
     def __build_but_layout(self):
         self.ButLayout.addWidget(self.b0)
@@ -64,9 +64,8 @@ class ShowImg(QWidget):
         self.TopLayoutRight.addWidget(self.R)
         self.TopLayoutRight.addWidget(self.B)
         self.TopLayoutRight.addWidget(self.G)
-
         self.TopLayout.addWidget(self.lab, 3)
-        self.TopLayout.addLayout(self.TopLayoutRight, 0)
+        self.TopLayout.addLayout(self.TopLayoutRight)
 
     # def reLayout(self):
     #     h = self.height()
@@ -77,19 +76,29 @@ class ShowImg(QWidget):
         self.setGeometry(600, 200, 300, 300)
         self.setWindowTitle("Show Image")
         self.__config_display()
-        self.__config_layout()
+        # self.__config_layout()
 
     def __config_layout(self):
         self.__config_layout_topRight()
 
+    def __config_layout_top(self):
+        # self.TopLayoutRight.
+        pass
+
     def __config_layout_topRight(self):
-        self.TopLayoutRight.setContentsMargins(0, int(self.HEIGHT * 0.3), 0, int(self.HEIGHT * 0.3))
-        self.TopLayoutRight.setSpacing(int(self.WIDTH * 0.01))
+        HEIGHT = self.height()
+        WIDTH = self.width()
+        self.TopLayoutRight.setContentsMargins(0, int(HEIGHT * 0.3), 0, int(HEIGHT * 0.3))
+        self.TopLayoutRight.setSpacing(int(WIDTH * 0.01))
+
+    def __config_layout_but(self):
+        pass
 
     def __config_display(self):
         self.lab.setStyleSheet("""
             background-color: #333;
         """)
+
         self.lab.setScaledContents(False)  # 自适应label窗口大小
 
     def load_widgets(self):
@@ -129,25 +138,15 @@ class ShowImg(QWidget):
     def OpenSlot(self):
         file = QFileDialog(self)
 
+        # Dialog 弹出一个对话框， FileDialog弹出资源管理器
+        # 不能直接选择中文路径
         filename, _ = file.getOpenFileName(None, "choose file")
         print(type(filename))
-        # filename = filename.decode('utf-8')
-        # Dialog 弹出一个对话框， FileDialog弹出资源管理器
         self.image = cv2.imread(filename)
-        # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)   # 转灰度图
 
         ret, data = cv2.imencode('.png', self.image)
-        # cv2.imshow("cv2show", image)
-        # cv2.waitKey(0)
-        # cv2.destroyAllWindows()
 
         self.qimg = QImage.fromData(data)  # opencv转QImage
-
-        # qimg = QImage(filename)   # 读取图片方式 一
-        # qimg = QImageReader(filename)  # 读取图片
-        # # qimg.convertToFormat(QImage.Format.Format_RGB888)
-        # qimg = qimg.read()
-        # qimg.convertTo(QImage.Format.Format_RGB888)
 
         size = self.qimg.size()  # 获取图片尺寸
         w = size.width()  # 获取原图宽
@@ -160,14 +159,17 @@ class ShowImg(QWidget):
         self.lab.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
     def scale(self, h, w):
-        if h > w:
-            resize = self.lab.height()
+        lh = self.lab.height()
+        lw = self.lab.width()
+
+        if lh > lw:
+            resize = lh
             scale = h / resize
             rw = int(w / scale)
             QImg = self.qimg.scaled(rw, resize, Qt.AspectRatioMode.IgnoreAspectRatio,
                                     Qt.TransformationMode.FastTransformation)
         else:
-            resize = self.lab.width()
+            resize = lw
             scale = w / resize
             rh = int(h / scale)
             QImg = self.qimg.scaled(resize, rh, Qt.AspectRatioMode.IgnoreAspectRatio,
@@ -186,15 +188,11 @@ class ShowImg(QWidget):
 
     def SeparateSlot(self):
         print(self.R.isChecked())
-        r, g, b = cv2.split(self.image)
+
+        b, g, r = cv2.split(self.image)
         # print(type(r), r) # OpenCv返回numpy数组
         showPassWay = []
         # print("Separate")
-        if self.R.isChecked():
-            # print("R")
-            showPassWay.append(r)
-        else:
-            showPassWay.append(np.zeros_like(r))
 
         if self.B.isChecked():
             # print("B")
@@ -208,6 +206,12 @@ class ShowImg(QWidget):
         else:
             showPassWay.append(np.zeros_like(g))
 
+        if self.R.isChecked():
+            print("R")
+            showPassWay.append(r)
+        else:
+            showPassWay.append(np.zeros_like(r))
+
         if showPassWay is not []:
             showImg = cv2.merge(showPassWay)
             _, data = cv2.imencode('.jpg', showImg)
@@ -215,9 +219,9 @@ class ShowImg(QWidget):
             # rec, bd = cv2.imencode("", b)
             # rec, gd = cv2.imencode("", g)
 
-            qimg = QImage.fromData(data)
-
-            self.PIXMAP.convertFromImage(qimg)
+            self.qimg = QImage.fromData(data)
+            self.qimg = self.scale(self.qimg.height(), self.qimg.height())
+            self.PIXMAP.convertFromImage(self.qimg)
             self.lab.setPixmap(self.PIXMAP)
 
     def GraySlot(self):
@@ -229,8 +233,6 @@ class ShowImg(QWidget):
 
     def check_r_status(self):
         print(f"change check R; now status is {self.R.isChecked()}")
-        # if self.R.isChecked():  # 勾选 return True
-        #     print("showing R")
 
     def check_b_status(self):
         print(f"change check B; now status is {self.B.isChecked()}")
@@ -244,7 +246,9 @@ class ShowImg(QWidget):
         print(x, y)
 
     def resizeEvent(self, a0):  # 窗口尺寸变化时调用
-        self.load_layout()
+        self.__config_display()
+        self.__config_layout()
+        pass
 
 
 if __name__ == '__main__':

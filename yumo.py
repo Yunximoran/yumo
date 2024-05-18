@@ -16,7 +16,7 @@ class Run:
 
     allConf = {}
 
-    def __init__(self, *args, house="main"):  # 初始化进程， 定位启动目标
+    def __init__(self, *args, house="Core"):  # 初始化进程， 定位启动目标
         self.house = house
 
         # 输入项目名称， 怎样准确定位到文件所在为止

@@ -5,5 +5,14 @@
         <global>
             <backgroud-color>#</backgroud-color>
         </global>
+        <button>
+
+        </button>
+        <display>
+
+        </display>
+        <checkbox>
+
+        </checkbox>
     </theme>
 </Configs>
