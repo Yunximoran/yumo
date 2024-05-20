@@ -50,6 +50,21 @@ class Logger:
             file_handler = logging.FileHandler(f'log_info/{os.path.basename(__file__)}.log', 'w', encoding='utf-8')
             self.logger.addHandler(file_handler)
 
+    def record(self, msg):
+        def decorator(func):
+            def wrap(*args, **kwargs):
+                try:
+                    res = func(*args, **kwargs)
+                    self.logger.debug(msg)
+                    return res
+                except Exception as e:
+                    self.logger.error(e)
+                    return False
+
+            return wrap
+
+        return decorator
+
     def debug(self, *msg):
         def decorator(func):
             def wrap(*args, **kwargs):
@@ -115,12 +130,11 @@ class Logger:
 
 
 if __name__ == '__main__':
-    logger = Logger('yumonotes', 'DEBUG', False)
 
+    logger = Logger('yumo', 'DEBUG', True)
 
     @logger.record('test zero')
     def zero():
         print(1 / 0)
-
 
     zero()
