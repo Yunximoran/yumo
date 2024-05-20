@@ -16,5 +16,3 @@ class TestBasic:
 
     def test_deque(self):
         pass
-
-

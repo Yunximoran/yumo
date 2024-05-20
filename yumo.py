@@ -1,6 +1,4 @@
-import lib.build
 from lib.build.buildStructure import BuildStructure
-# 导入内置模块
 from lxml import etree
 import subprocess
 import json
@@ -16,7 +14,7 @@ class Run:
 
     allConf = {}
 
-    def __init__(self, *args, house="Core"):  # 初始化进程， 定位启动目标
+    def __init__(self, *args, house="core"):  # 初始化进程， 定位启动目标
         self.house = house
 
         # 输入项目名称， 怎样准确定位到文件所在为止
@@ -115,8 +113,11 @@ class Run:
             json.dump(frame, f, indent=4, ensure_ascii=False)
 
 
-yumo = Run()
-yumo.start('demo', 'Crawler')
+# yumo = Run()
+# yumo.start('demo', 'Crawler')
+
+if __name__ == '__main__':
+    from lib.syskit import *
 
 """
 参数应该以什么方式存放在xml中，有应该怎么准确解析？

@@ -131,7 +131,7 @@ class Logger:
 
 if __name__ == '__main__':
 
-    logger = Logger('yumo', 'DEBUG', True)
+    logger = Logger('yumonotes', 'DEBUG', True)
 
     @logger.record('test zero')
     def zero():

@@ -1,4 +1,3 @@
-import os.path
 
 from lib.build import buildStructure
 

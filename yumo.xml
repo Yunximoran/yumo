@@ -1,109 +1,79 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<baseConf name="YuMo">
+<baseConf name="YuMo" absPath="D:\\Code\\python\\YuMo">
     <projectConf>
-        <nav house="main"> <!-- navigation bar - [导航 栏] -->
-            <list class="Big Data">
-                <projects>
-                    <project name="#">
-                        <args>
-                            <li>#</li>
-                        </args>
-                    </project>
-                </projects>
-                <address>main\\Big Data</address>
-            </list>
+        <nav house="core"> <!-- navigation bar - [导航 栏] -->
+            <projects label="BigData">
+                <project name="#">
+                    <args>
+                        <li>#</li>
+                    </args>
+                </project>
+            </projects>
 
-            <list class="Cloud Computing">
-                <projects>
-                    <project name="#">
 
-                        <args>
-                            <li>#</li>
-                        </args>
-                    </project>
-                </projects>
-                <address>main\\Cloud Computing</address>
-            </list>
+            <projects label="CloudComputing">
+                <project name="#">
+                    <args>
+                        <li>#</li>
+                    </args>
+                </project>
+            </projects>
 
-            <list class="Crawler">
-                <projects>
-                    <project name="demo">
-                        <args> <!--li 是待定参数， 标签民可根据实际更改 ？？？-->
-                            <li>URL=[https://www.baidu.com, https://fanyi.baidu.com]</li>
-                            <li>None</li>
-                        </args>   <!-- 项目参数 -->
 
-                    </project>
-                </projects>
+            <projects label="Crawler">
+                <project name="demo">
+                    <args> <!--li 是待定参数， 标签民可根据实际更改 ？？？-->
+                        <li>URL=[https://www.baidu.com, https://fanyi.baidu.com]</li>
+                        <li>None</li>
+                    </args>   <!-- 项目参数 -->
+                </project>
+            </projects>
 
-                <address>main\Crawler</address>
-            </list>
 
-            <list class="Data Analysis">
-                <projects>
-                    <project name="#">
+            <projects label="DataAnalysis">
+                <project name="#">
+                    <args>
+                        <li>#</li>
+                    </args>
+                </project>
+            </projects>
 
-                        <args>
-                            <li>#</li>
-                        </args>
-                    </project>
-                </projects>
-                <address>main\\Data Analysis</address>
-            </list>
 
-            <list class="Data Base">
-                <projects>
-                    <project name="#">
-                        <args>
-                            <li>#</li>
-                        </args>
-                    </project>
-                </projects>
-                <address>main\\Data Base</address>
-            </list>
+            <projects label="DataBase">
+                <project name="#">
+                    <args>
+                        <li>#</li>
+                    </args>
+                </project>
+            </projects>
 
-            <list class="Machine Learning">
-                <projects>
-                    <project name="#">
 
-                        <args>
-                            <li>#</li>
-                        </args>
-                    </project>
-                </projects>
-                <address>main\\Machine Learning</address>
-            </list>
+            <projects label="MachineLearning">
+                <project name="#">
+                    <args>
+                        <li>#</li>
+                    </args>
+                </project>
+            </projects>
 
-            <list class="OpenCV">
-                <projects>
-                    <project name="#">
 
-                        <args>
-                            <li>#</li>
-                        </args>
-                    </project>
-                </projects>
-                <address>main\\OpenCV</address>
-            </list>
+            <projects label="OpenCV">
+                <project name="#">
+                    <args>
+                        <li>#</li>
+                    </args>
+                </project>
+            </projects>
         </nav>
 
-        <!-- 项目配置模板
-        <nav house="course">
-            <list class="Project Class">
-                <projects>
-                    <project name="Project Name">
-                        <args>
-<li>#</li></args>
-                    </project>
-                </projects>
-                ...
-                <address>HouseName\\Project</address>
-                ...
-            </list>
-            ...
-        </nav>
-        -->
+
+        <material path="D:\\Code\\python\\YuMo\\material">
+            <audio>audio</audio>
+            <document>document</document>
+            <image>image</image>
+            <video>video</video>
+        </material>
     </projectConf>
 
     <database host="localhost 127.0.0.1"> <!-- 数据库配置 -->
@@ -140,7 +110,7 @@
         <!--    代理配置模板
         <proxy server="Proxy Server Name">
             <type>Proxy Type [http | sock5]</type>
-            <host>Proxy Host Address</host>
+            <host>Proxy Host path</host>
             <port>Proxy Use Port</port>
         </proxy>
         -->

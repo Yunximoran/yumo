@@ -34,7 +34,7 @@
 #
 #
 # if __name__ == '__main__':
-#     logger = LogsManager('yumo', 'YuMo\\lib\\LogsManager')
+#     logger = LogsManager('yumonotes', 'YuMo\\lib\\LogsManager')
 #     logger.logger.debug('Hello')
 #     logger.logger.info('Hello')
 #     logger.logger.warning('Hello')

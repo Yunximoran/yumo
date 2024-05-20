@@ -61,7 +61,7 @@ class TestClient:
         """
 
         print("test_update")
-        self.client.update("test_2", {'id': [1, 2, 3], 'name': ["yunximoran", "yumo", "杨天华"], "age": [18, 20, 22]})
+        self.client.update("test_2", {'id': [1, 2, 3], 'name': ["yunximoran", "yumonotes", "杨天华"], "age": [18, 20, 22]})
         self.client.update("test_2",
                            vals=(4, "云曦墨染", 232),
                            keys=('id', 'name', "age")
@@ -222,7 +222,7 @@ class TestClient:
 
         tdict_1 = {
             "id": 1,
-            "name": "yumo",
+            "name": "yumonotes",
             "age": 18
         }
         print(tuple(tdict_1.values()))
@@ -231,7 +231,7 @@ class TestClient:
     def getInsertData():
         tdict_1 = {
             "id": 1,
-            "name": "yumo",
+            "name": "yumonotes",
             "age": 18
         }
 
@@ -245,7 +245,7 @@ class TestClient:
                 "M"],
             'age': [18, 20, 21, 19, 18]
         }
-        tseries_1 = [1, "yumo", 18]
+        tseries_1 = [1, "yumonotes", 18]
         tseries_2 = [
             [1, "Y", 18],
             [2, "T", 20],

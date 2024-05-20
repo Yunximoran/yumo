@@ -27,7 +27,7 @@ class Build:
         self.__Init(None)
 
     @staticmethod
-    def __Init(structure, main="yumo"):
+    def __Init(structure, main="yumonotes"):
         """
             初始化项目
         :param structure:  初始化项目结构

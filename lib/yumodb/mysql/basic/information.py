@@ -3,7 +3,7 @@
 from .connector import Connector
 from ..err.log import LogManger
 
-log = LogManger("Information", "yumodb.mysql.basic.information")
+log = LogManger("Information", "yumodb.mysql.basic.Information")
 
 
 # 我需要information可以获取client当前信息，比如当前使用的数据库
