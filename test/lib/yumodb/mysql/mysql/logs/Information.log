@@ -1,0 +1,28 @@
+execute success select column_name, data_type, column_key from information_schema.columns where table_schema='test_db' and table_name='test_2'
+	attr: yumodb.mysql.basic.Information
+execute success select column_name, data_type, column_key from information_schema.columns where table_schema='test_db' and table_name='test_2'
+	attr: yumodb.mysql.basic.Information
+execute success select column_name, data_type, column_key from information_schema.columns where table_schema='test_db' and table_name='test_2'
+	attr: yumodb.mysql.basic.Information
+execute success select column_name, data_type, column_key from information_schema.columns where table_schema='test_db' and table_name='test_2'
+	attr: yumodb.mysql.basic.Information
+execute success select column_name, data_type, column_key from information_schema.columns where table_schema='test_db' and table_name='test_2'
+	attr: yumodb.mysql.basic.Information
+execute success select column_name, data_type, column_key from information_schema.columns where table_schema='test_db' and table_name='test_2'
+	attr: yumodb.mysql.basic.Information
+execute success show databases
+	attr: yumodb.mysql.basic.Information
+execute success select table_name from information_schema.tables where table_schema = 'test_db'
+	attr: yumodb.mysql.basic.Information
+execute success select column_name, data_type, column_key from information_schema.columns where table_schema='test_db' and table_name='test_2'
+	attr: yumodb.mysql.basic.Information
+execute success select count(*) from test_db.test_1
+	attr: yumodb.mysql.basic.Information
+execute success select column_name, data_type, column_key from information_schema.columns where table_schema='test_db' and table_name='test_1'
+	attr: yumodb.mysql.basic.Information
+execute success select column_name, data_type, column_key from information_schema.columns where table_schema='test_db' and table_name='test_1'
+	attr: yumodb.mysql.basic.Information
+execute success select column_name, data_type, column_key from information_schema.columns where table_schema='test_db' and table_name='test_2'
+	attr: yumodb.mysql.basic.Information
+execute success select column_name, data_type, column_key from information_schema.columns where table_schema='test_db' and table_name='test_2'
+	attr: yumodb.mysql.basic.Information
