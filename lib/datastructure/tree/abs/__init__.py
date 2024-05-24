@@ -139,7 +139,7 @@ class Tree:
         self.root = None
 
     def Set(self, key, value):
-        if self.root:
+        if self.root is not None:
             self.__Set(key, value, self.root)
         else:
             self.root = TreeNode(key, value)
