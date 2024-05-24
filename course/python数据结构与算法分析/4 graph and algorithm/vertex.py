@@ -1,11 +1,11 @@
 class Vertex:
-    distance = None
-    pred = None
-    color = None
 
     def __init__(self, key):
         self.id = key
         self.connectTo = {}
+        self.distance = 0
+        self.color = 'white'
+        self.pred = None
 
     def addNeighbor(self, nbr, weight=0):
         self.connectTo[nbr] = weight

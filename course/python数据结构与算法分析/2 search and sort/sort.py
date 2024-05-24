@@ -109,6 +109,9 @@ def shellSort(alist):
         sublistcount //= 2
 
 
+
+
+
 def gapInsertionSort(alist, start, gap):
     for i in range(start + gap, len(alist), gap):
         currentvalue = alist[i]
