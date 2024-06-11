@@ -119,10 +119,11 @@ class TreeNode:
             self.right.setParent(self)
 
     def __str__(self):
-        return f"key: {self.key}, val: {self.val}"
+        return f"{self.key}"  # , val: {self.val}"
 
     def __iter__(self):
         if self:
+            # 中序遍历返回的一定是顺序表？
             if self.hasLeft():
                 for elem in self.getLeft():
                     yield elem
@@ -153,11 +154,10 @@ class Tree:
             else:
                 current.setLeft(TreeNode(key, val, parent=current))
         else:
-            if current.key < key:
-                if current.hasRight():
-                    self.__Set(key, val, current.getRight())
-                else:
-                    current.setRight(TreeNode(key, val, parent=current))
+            if current.hasRight():
+                self.__Set(key, val, current.getRight())
+            else:
+                current.setRight(TreeNode(key, val, parent=current))
 
     def Get(self, key):
         res = None
@@ -186,6 +186,9 @@ class Tree:
                 self.__SIZE -= 1
             else:
                 raise KeyError("Error, key not in tree")
+        elif self.__SIZE == 1 and self.root.key == key:
+            self.root = None
+            self.__SIZE -= 1
         else:
             raise KeyError("Error, key not in tree")
 

@@ -17,16 +17,22 @@ class BinaryTree(Tree):
             left = i.getLeft()
             right = i.getRight()
             frame.append(
-                [key, val, parent, left, right, "left" if i.isLeft() else 'right' if not i.isRoot() else 'root'])
+                [key, val, "left" if i.isLeft() else 'right' if not i.isRoot() else 'root', parent, left, right])
 
-        return pd.DataFrame(frame, columns=['key', 'val', 'parent', 'left', 'right', 'type'])
+        return pd.DataFrame(frame, columns=['key', 'val', 'type', 'parent', 'left', 'right'])
 
 
 if __name__ == '__main__':
-    td = [3, 1, 7, 4, 9, 5, 2, 6, 8, 0]
+    import random as rd
     tree = BinaryTree()
-    for d in td:
-        tree[d] = d * 2
 
-    print(tree.GetTreeView())
-    print(len(tree))
+    td = [rd.randint(0, 9) for _ in range(10)]
+    for i in td:
+        tree[i] = i ** 2
+
+    for i in tree:
+        print(i)
+
+    print(3 in tree)
+    print(4 in tree)
+    print(5 in tree)
