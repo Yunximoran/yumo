@@ -4,7 +4,8 @@ from pathlib import Path
 from tkinter import filedialog
 from PIL import Image
 
-def svg_to_ico(svg, ico, size=32):
+
+def svgtoico(svg, ico, size=64):
     if size not in (16, 24, 32, 48, 64, 128, 256):
         raise "size error must in 16, 24, 32, 48, 64, 128, 256"
     
@@ -24,11 +25,3 @@ def svg_to_ico(svg, ico, size=32):
         format="ICO",
         bitdepth=32  # 支持透明通道
     )
-svgpath = Path(filedialog.askdirectory())
-icopath = svgpath.joinpath("icons")
-icopath.mkdir(parents=True, exist_ok=True)
-
-for svgfile in svgpath.glob("*.svg"):
-    name = svgfile.stem
-    save = icopath.joinpath(f"{name}.ico")
-    svg_to_ico(str(svgfile), str(save), 256)
