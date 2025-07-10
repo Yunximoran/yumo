@@ -1,0 +1,8 @@
+
+{
+    "terminal.integrated.env.windows": {
+        "SCRIPTS": "C:\\developments\\anaconda3\\envs\\yumo\\Scripts",
+        "PYTHONPATH": "${workspaceFolder}${env:PYTHONPATH}",
+        "lib": "${workspaceFolder}"
+    }
+}

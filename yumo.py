@@ -1,34 +1,18 @@
-import cairosvg
-import io
-from pathlib import Path
-from tkinter import filedialog
-from PIL import Image
+import os, sys
+from services import startup
+from lib.sys.processing import Process
 
-def svg_to_ico(svg, ico, size=32):
-    if size not in (16, 24, 32, 48, 64, 128, 256):
-        raise "size error must in 16, 24, 32, 48, 64, 128, 256"
-    
-    # 转换成PNG数据
-    png = cairosvg.svg2png(
-        url=svg,
-        output_height=size,
-        output_width=size
-    )
 
-    img = Image.open(io.BytesIO(png))
-    if img.mode != "RGBA":
-        img = img.convert("RGBA")
-    
-    img.save(
-        ico,
-        format="ICO",
-        bitdepth=32  # 支持透明通道
-    )
-svgpath = Path(filedialog.askdirectory())
-icopath = svgpath.joinpath("icons")
-icopath.mkdir(parents=True, exist_ok=True)
 
-for svgfile in svgpath.glob("*.svg"):
-    name = svgfile.stem
-    save = icopath.joinpath(f"{name}.ico")
-    svg_to_ico(str(svgfile), str(save), 256)
+class Start:
+    services = [
+        startup.Django
+    ]
+
+    services_runing = []
+    def __init__(self):
+        for service in self.services:
+            Process(target=service).start()
+
+if __name__ == "__main__":
+    Start()

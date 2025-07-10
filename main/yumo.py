@@ -1,5 +1,6 @@
-# 日常活动区
+from pathlib import Path
 
-OutFormat = ['\t'] * 3
-
-print(''.join(OutFormat) + "test")
+class TP:
+    # path = __file__
+    def __init__(self):
+        self.path = __file__

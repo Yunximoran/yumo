@@ -4,6 +4,7 @@ from pathlib import Path
 from tkinter import filedialog
 from PIL import Image
 
+class SvgSizeError(Exception): ...
 
 def svgtoico(svg, ico, size=64):
     if size not in (16, 24, 32, 48, 64, 128, 256):
