@@ -1,2 +1,7 @@
-build
-dist
+# ignore pyinstaller
+
+static/pack/*
+
+
+.conda
+**/__pycache__
