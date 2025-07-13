@@ -19,11 +19,13 @@ from django.contrib import admin
 from django.urls import path
 
 from ..actions import hello
+from ..actions import send_instruct
+from ..actions import start_software
+from ..actions import getinfo
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("hello", hello, name="test"),
-    path("data/", hello, name="nuxi"),
-    path("send/instruct", None, name="sendevent"),
-    path("local/start/release", None, name="event")
+    path("data/", getinfo, name="nuxi"),
+    path("send/instruct", send_instruct, name="sendevent"),
+    path("local/startsoft", start_software, name="event")
 ]

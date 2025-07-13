@@ -4,6 +4,7 @@ from django.views.decorators.http import require_http_methods, require_GET, requ
 from django.views.decorators.csrf import csrf_exempt
 
 from services.django.actions.forms import TestForm
+from .event import *
 
 @csrf_exempt
 @require_POST

@@ -14,5 +14,11 @@ class Start:
         for service in self.services:
             Process(target=service).start()
 
+"""
+# Django后端
+# Vue前端
+
+
+"""
 if __name__ == "__main__":
     Start()
