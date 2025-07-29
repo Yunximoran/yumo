@@ -1,0 +1,82 @@
+
+{
+    "terminal.integrated.env.windows": {
+        "SCRIPTS": "${workspaceFolder}\\.conda\\Scripts",
+        "PYTHONPATH": "${workspaceFolder}${env:PYTHONPATH}",
+        "lib": "${workspaceFolder}"
+    },
+    "terminal.integrated.env.linux": {
+        "SCRIPTS": "${workspaceFolder}/.conda/Scripts",
+        "PYTHONPATH": "${workspaceFolder}${env:PYTHONPATH}",
+        "WORKING": "${workspaceFolder}"
+    },
+
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+      "tsconfig.json": "tsconfig.*.json, env.d.ts",
+      "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
+      "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .oxlint*, oxlint*, .prettier*, prettier*, .editorconfig"
+    },
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "typescript.tsdk": "${workspaceFolder}${pathSeparator}services${pathSeparator}yumovue${pathSeparator}node_modules",
+    
+  // designer：Qt设计程序
+  "qtForPython.designer.path": "${workspaceFolder}${pathSeparator}.conda${pathSeparator}Scripts${pathSeparator}pyside6-designer.exe",
+  "qtForPython.designer.options": [],
+
+  // uic：UI文件编译工具
+  "qtForPython.uic.path": "${workspaceFolder}${pathSeparator}.conda${pathSeparator}Scripts${pathSeparator}pyside6-uic.exe",
+  "qtForPython.uic.liveExecution.enabled": true,
+  "qtForPython.uic.liveExecution.glob": "**/*.ui",  
+  "qtForPython.uic.options": [
+    "-o",
+    "${workspaceFolder}${pathSeparator}ui${pathSeparator}${resourceBasenameNoExtension}_ui.py"
+  ],
+
+  // rcc：资源文件编译工具
+  "qtForPython.rcc.path": "${workspaceFolder}${pathSeparator}.conda${pathSeparator}Scripts${pathSeparator}pyside6-rcc.exe",
+  "qtForPython.rcc.liveExecution.enabled": true,
+  "qtForPython.rcc.liveExecution.glob": "**/*.qrc",    
+  "qtForPython.rcc.options": [
+    "-o",
+    "${workspaceFolder}${pathSeparator}ui${pathSeparator}${resourceBasenameNoExtension}_rc.py"
+  ],
+
+  // lupdate：翻译提取工具
+  "qtForPython.lupdate.path": "${workspaceFolder}${pathSeparator}.conda${pathSeparator}Scripts${pathSeparator}pyside6-lupdate.exe",
+  "qtForPython.lupdate.options": [
+    "-ts",
+    "${workspaceFolder}${pathSeparator}ui${pathSeparator}${resourceBasenameNoExtension}.ts"
+  ],
+
+  // linguist：翻译编辑工具
+  "qtForPython.linguist.path": "${workspaceFolder}${pathSeparator}.conda${pathSeparator}Scripts${pathSeparator}pyside6-linguist.exe",
+  "qtForPython.linguist.options": [],
+
+  // lrelease：翻译编译工具
+  "qtForPython.lrelease.path": "${workspaceFolder}${pathSeparator}.conda${pathSeparator}Scripts${pathSeparator}pyside6-lrelease.exe",
+  "qtForPython.lrelease.options": [],
+
+  // qml: QML
+  "qtForPython.qml.path": "${workspaceFolder}${pathSeparator}.conda${pathSeparator}Scripts${pathSeparator}pyside6-qml.exe",
+  "qtForPython.qml.options": [],
+
+  // qmlformat：QML格式化工具
+  "qtForPython.qmlls.path": "${workspaceFolder}${pathSeparator}.conda${pathSeparator}Scripts${pathSeparator}pyside6-qmlls.exe",
+  "qtForPython.qmlls.enabled": false,  
+  "qtForPython.qmlls.options": [
+    "--verbose"
+  ],
+
+  // qmlls：QML语言服务器
+  "qtForPython.qmlformat.path": "${workspaceFolder}${pathSeparator}.conda${pathSeparator}Scripts${pathSeparator}pyside6-qmlformat.exe",
+  "qtForPython.qmlformat.options":  [
+    "-i", 
+    "--normalize"
+  ],
+
+}

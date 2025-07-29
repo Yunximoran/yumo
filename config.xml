@@ -1,0 +1,16 @@
+<root>
+    <default describe="项目配置">
+        <log-settings describe="logger 默认配置">
+            <level>info</level>
+            <path>logs</path>
+            <console>false</console>
+            <handler type="RotatingFileHandler">
+                <mode>a</mode>
+                <max-bytes>5242880</max-bytes>
+                <backup>5</backup>
+                <delay>true</delay>
+            </handler>
+        </log-settings>
+        <encoding>utf-8</encoding>
+    </default>
+</root>
