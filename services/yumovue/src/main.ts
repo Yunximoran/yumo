@@ -1,19 +1,23 @@
 import './assets/main.css'
+import { createSSRApp } from 'vue'
+import App from '@/App.vue'
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
 
-import App from './App.vue'
-import router from './router'
-import axios from 'axios'
-
-axios.defaults.baseURL = "http://localhost:8000"
+import router from '@/router'
+import requests from "@/requests"
+import pinia from "@/stores"
 
 
 
-const app = createApp(App)
+// 导出ssr app实例
+export function createApp() {
+  const app = createSSRApp(App)
+  app.config.globalProperties.$requests = requests
+  app.use(pinia)
+  app.use(router)
 
-app.use(createPinia())
-app.use(router)
+  return { app, pinia, router}
+}
 
-app.mount('#app')
+
+

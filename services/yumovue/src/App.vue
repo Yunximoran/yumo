@@ -17,6 +17,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
+
 header {
   display: flex;
   width: 100%;

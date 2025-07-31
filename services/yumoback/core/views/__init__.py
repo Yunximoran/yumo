@@ -1,4 +1,5 @@
 from . import view
+from . import aigc
 
 """
 # 系统管理项目
