@@ -80,6 +80,7 @@ class RequestHttp {
     }
   }
 
+
   get<T>(url: string, config?:object): Promise<ResultData<T>> {
     return this.service.get(url, config)
   }
@@ -88,14 +89,64 @@ class RequestHttp {
     return this.service.post(url, data, config)
   }
 
-  stream<T>(url: string, data?:object, config?:object): Promise<ResultData<T>>{
-    return this.service.post(url, data, {
-      ...config,
-      headers: {
-        "content": 'application/x-www-form-urlencoded;charset=utf-8',
-      },
-      responseType: typeof window === undefined ? "stream" : "blob"
-    })
+  async stream<T>(url: string, data?:object, config?:object): Promise<ResultData<T>>{
+    if (typeof window === 'undefined') {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result: ResultData<T> = await response.json();
+      return result;
+      // new Promise(async () => {
+      //   const resp = await fetch(url, {
+      //     ...config,
+      //     method: "POST",
+      //     headers: {
+      //       "content-type": "application/json"
+      //     },
+      //     body: JSON.stringify(data)
+      //   })
+      //   if (!resp.ok) {
+      //     throw new Error('HTTP error ! status: ${response.status}')
+      //   }
+
+      //   const reader = resp.body?.getReader()
+      //   if (!reader) throw new Error("Stream reader not available");
+      //   const decoder = new TextDecoder()
+      //   let partialChunk = "";
+      //   while (true) {
+      //     const {done, value} = await reader.read()
+      //     if (done) {
+      //       break
+      //     }
+
+      //     const chunk = partialChunk + decoder.decode(value, {stream: true})
+      //     const lines = chunk.split("\n")
+
+      //     partialChunk = lines.pop() || ""
+
+      //     lines.forEach(line => {
+      //       if (line.trim()) console.log("line");
+      //     })
+      //   }
+      // })
+    } else {
+      return this.service.post(url, data, {
+        ...config,
+        headers: {
+          "content-type": 'application/x-www-form-urlencoded;charset=utf-8',
+        },
+        responseType: typeof window === undefined ? "stream" : "blob"
+      })
+    }
   }
 }
 

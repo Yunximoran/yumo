@@ -13,6 +13,8 @@ async def ite():
         yield i
 
 async def answer(request: HttpRequest):
+    print(request.method)
+    print(request.body)
     if request.method == "POST":
 
         form = forms.aigc.Question(request.POST)
@@ -24,6 +26,7 @@ async def answer(request: HttpRequest):
                 aigcore.answer(question),
                 content_type="text/plain"
             )
-
-
-    raise Http404("method is error please use post")
+        # print("error form", form)
+        raise Http404("error")
+    else:
+        raise Http404("method is error please use post")

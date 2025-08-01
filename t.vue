@@ -11,14 +11,14 @@
       <!-- 回答区域 -->
       <div class="reply" v-if="msglist.length > 0">
         <div v-for="(msg, index) in msglist" :key="index" :class="['message', msg.type]">
-          <p>{{ msg.content }}</p>
+          <!-- <p v-if="answer.content === ''">{{ msg.content }}</p> -->
+          <p>{{ answer.content }}</p>"
         </div>
-        <div v-show="answer !== ''" class="message answer">{{ answer }}</div>
       </div>
 
       <!-- 提问区域 -->
       <div class="ask questions">
-        <textarea ref="question" v-if="question !== false" v-model="question" @input="update_area_question">
+        <textarea ref="question" v-if="message !== false" v-model="message" @input="update_area_question">
         </textarea>
         <button>
           <img src="../assets/icons/links.png" alt="上传文件" />
@@ -36,14 +36,18 @@ export default {
   data() {
     return {
       msglist: [],
-      question: false,
+      message: false,
       settings: true,
-      answer: ""
+      answer: {
+        type: "answer",
+        content: ""
+      }
     }
   },
   methods: {
     update_area_question() {
       // 更新提问区高度
+      this.answer.content += this.message
       this.$refs.question.style.height = "auto"
       let newHeight = this.$refs.question.scrollHeight
       const maxHeight = 180
@@ -57,19 +61,17 @@ export default {
 
     reset_area_question() {
       this.$refs.question.style.height = 'auto'
-      this.question = ''
+      this.message = ''
     },
 
-
     submit_questions() {
-
       fetch("http://localhost:8000/aigc/answer/", {
         method: "POST",
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
-          question: this.question
+          question: this.message
         })
       }).then(resp => {
         if (!resp.ok) {
@@ -79,29 +81,33 @@ export default {
         const decoder = new TextDecoder()
 
         const readchunk = async () => {
+          // while (true) {
+          //   const {done, value} = await reader.read()
+          //   if (done) break
+          //   const chunk = decoder.decode(value, {stream: true})
+          //   answer.content += chunk
+
+          // }
           const { done, value } = await reader.read(); // 异步读取
-          if (done) return this.answer;
-          // 流结束时退出
+          if (done) return; // 流结束时退出
           const chunk = decoder.decode(value, { stream: true });
-          if ( chunk !== "None") this.answer += chunk;
+          this.answer.content += chunk
+          // console.log(this.msglist)
+          // console.log("Received chunk:", answer.content);
           return readchunk();
         }
 
-        return readchunk()
-      }).then((answer) => {
-        // 更新历史记录
-        this.msglist.push({
-              type: "answer",
-              content: answer
-        })
-        this.answer = ""
+        readchunk();
+        this.msglist.push(...answer)
+        this.answer.content = ""
+
       }).catch(err => {
         console.log(err)
       })
 
       this.msglist.push({
-          type: "question",
-          content: this.question
+        type: "question",
+        content: this.message
       })
 
       this.reset_area_question()
@@ -111,7 +117,7 @@ export default {
     }
   },
   mounted() {
-    this.question = ''
+    this.message = ''
   }
 }
 
