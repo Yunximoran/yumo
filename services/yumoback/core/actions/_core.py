@@ -51,9 +51,11 @@ class aigc:
                         content = delta.get("content", "")
 
                         res = content if content else reasoning_content
-                        yield res
+                        if res: yield res
                     except (KeyError, json.JSONDecodeError) as e:
                         print("ERROR")
+                    except Exception as e:
+                        print(e)
 
 
 # def answer(question: str):

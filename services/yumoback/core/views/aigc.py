@@ -13,15 +13,12 @@ async def ite():
         yield i
 
 async def answer(request: HttpRequest):
-    print(request.method)
-    print(request.body)
     if request.method == "POST":
 
         form = forms.aigc.Question(request.POST)
         if form.is_valid():
             data = form.cleaned_data
             question = data.get("question", "什么是deepseek")
-            print("question:", question)
             return StreamingHttpResponse(
                 aigcore.answer(question),
                 content_type="text/plain"

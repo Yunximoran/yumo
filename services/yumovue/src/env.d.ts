@@ -7,7 +7,7 @@ declare module '*.vue' {
 // 声明vue模块，解决computed等API的类型问题
 declare module 'vue' {
   export * from '@vue/runtime-dom';
-  export { computed, ref } from '@vue/reactivity';
+  export { computed, ref } from 'vue';
   export const createSSRApp: typeof import('@vue/runtime-dom').createSSRApp;
 }
 

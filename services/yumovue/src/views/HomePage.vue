@@ -13,7 +13,9 @@
         <div v-for="(msg, index) in msglist" :key="index" :class="['message', msg.type]">
           <p>{{ msg.content }}</p>
         </div>
-        <div v-show="answer !== ''" class="message answer">{{ answer }}</div>
+        <div v-show="answer !== ''" class="message answer">
+          <p>{{ answer }}</p>
+        </div>
       </div>
 
       <!-- 提问区域 -->
@@ -38,7 +40,8 @@ export default {
       msglist: [],
       question: false,
       settings: true,
-      answer: ""
+      answer: "",
+      subing: false
     }
   },
   methods: {
@@ -62,6 +65,12 @@ export default {
 
 
     submit_questions() {
+      if (this.subing) return
+      else this.subing = true
+      this.msglist.push({
+          type: "question",
+          content: this.question
+      })
 
       fetch("http://localhost:8000/aigc/answer/", {
         method: "POST",
@@ -95,13 +104,9 @@ export default {
               content: answer
         })
         this.answer = ""
+        this.subing = false
       }).catch(err => {
         console.log(err)
-      })
-
-      this.msglist.push({
-          type: "question",
-          content: this.question
       })
 
       this.reset_area_question()
