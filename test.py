@@ -34,9 +34,12 @@ for line in response.iter_lines():
                 reasoning_content = data['choices'][0]["delta"].get("reasoning_content", "")
 
                 content = data['choices'][0]["delta"].get("content", "")
-                print(reasoning_content, end="", flush=True)
+                
                 if content:
                     full_response += content
+                elif reasoning_content:
+                    full_response += reasoning_content
+                    
             except (KeyError, json.JSONDecodeError) as e:
                 print(f"\n[解析错误] {e} | 原始数据: {decode_line}")
 
