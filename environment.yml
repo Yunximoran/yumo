@@ -12,3 +12,5 @@ dependencies:
   - redis=3.5.3
   - pymysql=1.1.1
   - psutil=7.0.0
+  - pillow=11.3.0
+  - cairosvg=2.8.2

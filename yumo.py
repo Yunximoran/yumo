@@ -4,9 +4,11 @@ from pathlib import Path
 
 
 class Start:
+    STDOUT = Path("")
     def __init__(self):
-        # subprocess.Popen("npm run dev", shell=True, cwd= Path(__file__).parent / Path("services", "yumovue"))
-        yumoback.startasgi()
+
+        # subprocess.Popen("npm run dev", shell=True, cwd= Path(__file__).parent / Path("services", "yumoviws"))
+        yumoback.initdb()
 
 if __name__ == '__main__':
     Start()

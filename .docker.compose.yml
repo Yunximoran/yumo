@@ -1,0 +1,37 @@
+services:
+  yumoback:
+    prots:
+      - 8000:8000
+    
+    networks:
+      - core
+      - database
+
+  yumoviews:
+    ports:
+     - 8080:8080
+
+    networks:
+      - core
+
+  redis:
+    ports:
+      - 6389:6379
+
+  mysql:
+    ports:
+      - 3306:3306
+cap_add:
+  - ALL
+
+networks:
+  core:
+    driver: custom-driver-1
+  
+  database:
+    driver: custom-driver-2
+    driver_opts:
+      foo: "1"
+      bar: "2"
+
+

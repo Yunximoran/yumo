@@ -1,4 +1,5 @@
 @import './base.css';
+@import './views/home.css';
 
 #app {
   display: flex;

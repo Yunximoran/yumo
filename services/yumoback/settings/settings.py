@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "services.yumoback.core.models",
+    "services.yumoback.database.models",
     "corsheaders",
     "channels",
 ]

@@ -1,4 +1,4 @@
-from ..models import user
+from ...database.models import user
 
 def login(usrid:int):
     try:

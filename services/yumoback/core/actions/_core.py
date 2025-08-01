@@ -57,34 +57,3 @@ class aigc:
                     except Exception as e:
                         print(e)
 
-
-# def answer(question: str):
-#     payload["messages"][0]["content"] = question
-#     resp = requests.post(
-#         AI_BASE_URL, 
-#         json=payload,
-#         headers=headers,
-#         stream=True
-#     )
-#     for line in resp.iter_lines():
-#         if line:
-#             decoded_line = line.decode(ENCODING)
-#             if decoded_line.startswith("data:"):
-#                 data = decoded_line[5:].strip()
-#                 if data == "[DONE]":
-#                     break
-
-#                 try:
-#                     data = json.loads(data)
-#                     delta:dict = data['choices'][0]['delta']
-
-
-#                     # 推理过程
-#                     reasoning_content = delta.get("reasoning_content", "")
-#                     content = delta.get("content", "")
-                    
-#                     # 结论输出
-#                     # content = data['choices'][0]["delta"].get("content", "")
-#                     yield reasoning_content if not content else content
-#                 except (KeyError, json.JSONDecodeError) as e:
-#                     pass
