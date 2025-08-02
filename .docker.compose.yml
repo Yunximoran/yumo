@@ -1,37 +1,32 @@
 services:
-  yumoback:
-    image: yunximoran/yumoback
+  yumo:
+    image: yumo
     build:
       context: .
-      dockerfile: ./services/yumoback/.dockerfile
+      dockerfile: .dockerfile
     prots:
       - 8000:8000
-    
+      - 8080:8080
+
     networks:
       - core
       - database
-
-  yumoviews:
-    image: yunximoran/yumoviews
-    build:
-      context: .
-      dockerfile: ./services/yumoviews/.dockerfile
-
-    ports:
-     - 8080:8080
-
-    networks:
-      - core
 
   redis:
     image: redis:latest
     ports:
       - 6389:6379
+    
+    networks:
+      - database
 
   mysql:
     image: mysql:latest
     ports:
       - 3306:3306
+
+    networks:
+      - database
 
 cap_add:
   - ALL

@@ -17,10 +17,9 @@ async def answer(request: HttpRequest):
             data = form.cleaned_data
             question = data.get("question", "什么是deepseek")
             return StreamingHttpResponse(
-                actions.aigc.answer(question),
+                await actions.aigc.answer(question),
                 content_type="text/plain"
             )
-        # print("error form", form)
         raise Http404("error")
     else:
         raise Http404("method is error please use post")

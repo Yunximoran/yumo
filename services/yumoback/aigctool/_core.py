@@ -46,10 +46,7 @@ class aigcore:
             json=self.__payload,
             headers=self.__headers,
         )
-
-        return await self.__reading(resp)
-    
-    
+        return self.__reading(resp)
     
     def __create_new_dialogue(self):            # 创建 新对话(new dialogue) 模板
         playload = self.__payload.copy()
